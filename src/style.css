@@ -1,3 +1,24 @@
+h1{
+    text-align: center;
+    font-family: 'Belanosima', sans-serif;
+    /*font-size: 160%;*/
+}
+header{
+    width: 100%;
+    height: 120px;
+    background-color: #1465A2;
+    text-align: center;
+}
+header img{
+    height: 120%;
+}
+footer{
+    width: 100%;
+    height: 70px;
+    background-color: #1465A2;
+    text-align: center;
+    color: #FFFFFF;
+}
 .responsive-class{
     width: 100%;
 }
@@ -24,6 +45,7 @@
 
 .film-name > p{
     font-family: 'Belanosima', sans-serif;
+    font-size: 130%;
 }
 
 @media screen and (max-width: 1200px){
