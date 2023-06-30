@@ -45,3 +45,5 @@ for(let i=0; i < allFilms.length ; i++){
 const footer = document.createElement('footer');
 footer.innerText = 'Creado por Brenda Aguilar y Cami Flores';
 root.appendChild(footer);
+// prueba de branch para git
+// otra prueba
