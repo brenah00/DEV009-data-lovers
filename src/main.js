@@ -45,19 +45,19 @@ for(let i=0; i < allFilms.length ; i++){
 const cardFilm = document.createElement('div');
 root.appendChild(cardFilm);
 const poster = document.createElement('img');
-poster.src = allFilms[7].poster;
+poster.src = allFilms[0].poster;
 poster.className='poster-class';
 const titleFilm = document.createElement('h1');
-titleFilm.innerText = allFilms[7].title;
+titleFilm.innerText = allFilms[0].title;
 const year = document.createElement('h2');
-year.innerText = allFilms[7].release_date;
+year.innerText = allFilms[0].release_date;
 const infoFilm =document.createElement('p');
-infoFilm.innerText ='Director: '+allFilms[7].director+'\nProducer: '+allFilms[7].producer+'\nScore: '+allFilms[7].rt_score+'\n\n'+allFilms[7].description;
+infoFilm.innerText ='Director: '+allFilms[0].director+'\nProducer: '+allFilms[0].producer+'\nScore: '+allFilms[0].rt_score+'\n\n'+allFilms[0].description;
 cardFilm.appendChild(poster);
 cardFilm.appendChild(titleFilm);
 cardFilm.appendChild(year);
 cardFilm.appendChild(infoFilm);
-const allCharacters=allFilms[7].people;
+const allCharacters=allFilms[0].people;
 for (let i=0; i<allCharacters.length; i++)
 {
     const character=document.createElement('img');
@@ -67,6 +67,28 @@ for (let i=0; i<allCharacters.length; i++)
     cardFilm.appendChild(character);
     cardFilm.appendChild(characterInfo);
     
+}
+const allLocations=allFilms[0].locations;
+for(let i=0; i<allLocations.length; i++)
+{
+    const location=document.createElement('img');
+    location.src=allLocations[i].img;
+    const nameLocation=document.createElement('p');
+    nameLocation.innerHTML=allLocations[i].name;
+    cardFilm.appendChild(location);
+    cardFilm.appendChild(nameLocation);
+}
+
+const allVehicules=allFilms[0].vehicles;
+for (let i=0; i<allVehicules.length; i++)
+{
+    const vehicule=document.createElement('img');
+    vehicule.src=allVehicules[i].img;
+    const nameVehicule=document.createElement('p');
+    nameVehicule.innerHTML=allVehicules[i].name;
+    cardFilm.appendChild(vehicule);
+    cardFilm.appendChild(nameVehicule);
+
 }
 
 
