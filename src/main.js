@@ -43,29 +43,55 @@ for(let i=0; i < allFilms.length ; i++){
 }
 
 const cardFilm = document.createElement('div');
+cardFilm.className= 'card-film';
 root.appendChild(cardFilm);
 const poster = document.createElement('img');
 poster.src = allFilms[0].poster;
-poster.className='poster-class';
+//poster.className='poster-class';
+const allInformation=document.createElement('section');
 const titleFilm = document.createElement('h1');
 titleFilm.innerText = allFilms[0].title;
 const year = document.createElement('h2');
 year.innerText = allFilms[0].release_date;
-const infoFilm =document.createElement('p');
-infoFilm.innerText ='Director: '+allFilms[0].director+'\nProducer: '+allFilms[0].producer+'\nScore: '+allFilms[0].rt_score+'\n\n'+allFilms[0].description;
+//const infoFilm =document.createElement('p');
+//infoFilm.innerText ='Director: '+allFilms[0].director+'\nProducer: '+allFilms[0].producer+'\nScore: '+allFilms[0].rt_score+'\n\n'+allFilms[0].description;
+const infoDirector =document.createElement('p');
+infoDirector.innerHTML =`<b>Director: </b>${allFilms[0].director}`;
+const infoProducer=document.createElement('p');
+infoProducer.innerHTML= `<b>Producer: </b>${allFilms[0].producer}`;
+const infoScore=document.createElement('p');
+infoScore.innerHTML= `<b>Score:  </b>${allFilms[0].rt_score}`;
+const infoDescription=document.createElement('p');
+infoDescription.innerText=allFilms[0].description;
 cardFilm.appendChild(poster);
-cardFilm.appendChild(titleFilm);
-cardFilm.appendChild(year);
-cardFilm.appendChild(infoFilm);
+cardFilm.appendChild(allInformation);
+allInformation.appendChild(titleFilm);
+allInformation.appendChild(year);
+//cardFilm.appendChild(infoFilm);
+allInformation.appendChild(infoDirector);
+allInformation.appendChild(infoProducer);
+allInformation.appendChild(infoScore);
+allInformation.appendChild(infoDescription);
+const subTitle1=document.createElement('h2');
+subTitle1.innerText='Characters';
+const showCharacters=document.createElement('div');
+showCharacters.className='show-characters';
+
+root.appendChild(subTitle1);
+root.appendChild(showCharacters);
 const allCharacters=allFilms[0].people;
 for (let i=0; i<allCharacters.length; i++)
 {
+    const characterCard=document.createElement('div');
+    characterCard.className='character-card';
     const character=document.createElement('img');
     character.src=allCharacters[i].img;
     const characterInfo=document.createElement('p');
     characterInfo.innerText=allCharacters[i].name+'\nAge: '+allCharacters[i].age+'\nGender: '+allCharacters[i].gender;
-    cardFilm.appendChild(character);
-    cardFilm.appendChild(characterInfo);
+    showCharacters.appendChild(characterCard);
+    characterCard.appendChild(character);
+    characterCard.appendChild(characterInfo);
+    
     
 }
 const allLocations=allFilms[0].locations;

@@ -70,3 +70,22 @@ footer{
 .poster-class{
     width: 200px;
 }
+.card-film{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.show-characters{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.character-card {
+    display: grid;
+    grid-template-columns: 30% 70%;
+   
+}
+.character-card >img{
+   
+    object-fit: cover;
+}
