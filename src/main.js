@@ -42,8 +42,22 @@ for(let i=0; i < allFilms.length ; i++){
     containerFilm.appendChild(titulo);
 }
 
+const cardFilm = document.createElement('div');
+root.appendChild(cardFilm);
+const poster = document.createElement('img');
+poster.src = allFilms[7].poster;
+poster.className='poster-class';
+const titleFilm = document.createElement('h1');
+titleFilm.innerText = allFilms[7].title;
+const year = document.createElement('h2');
+year.innerText = allFilms[7].release_date;
+const infoFilm =document.createElement('p');
+infoFilm.innerText ='Director: '+allFilms[7].director+'\nProducer: '+allFilms[7].producer+'\nScore: '+allFilms[7].rt_score+'\n\n'+allFilms[7].description;
+cardFilm.appendChild(poster);
+cardFilm.appendChild(titleFilm);
+cardFilm.appendChild(year);
+cardFilm.appendChild(infoFilm);
+
 const footer = document.createElement('footer');
 footer.innerText = 'Creado por Brenda Aguilar y Cami Flores';
 root.appendChild(footer);
-// prueba de branch para git
-// otra prueba
