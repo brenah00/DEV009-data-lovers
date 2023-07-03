@@ -57,6 +57,18 @@ cardFilm.appendChild(poster);
 cardFilm.appendChild(titleFilm);
 cardFilm.appendChild(year);
 cardFilm.appendChild(infoFilm);
+const allCharacters=allFilms[7].people;
+for (let i=0; i<allCharacters.length; i++)
+{
+    const character=document.createElement('img');
+    character.src=allCharacters[i].img;
+    const characterInfo=document.createElement('p');
+    characterInfo.innerText=allCharacters[i].name+'\nAge: '+allCharacters[i].age+'\nGender: '+allCharacters[i].gender;
+    cardFilm.appendChild(character);
+    cardFilm.appendChild(characterInfo);
+    
+}
+
 
 const footer = document.createElement('footer');
 footer.innerText = 'Creado por Brenda Aguilar y Cami Flores';
