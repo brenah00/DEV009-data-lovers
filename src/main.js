@@ -32,6 +32,7 @@ for(let i=0; i < allFilms.length ; i++){
     posterContainer.className = 'poster-container';
     const poster = document.createElement('img');
     poster.src = allFilms[i].poster; 
+    .value
     //poster.alt = allFilms[i].title;
     poster.className = 'poster-class';
     const titulo = document.createElement('p');
@@ -80,8 +81,7 @@ showCharacters.className='show-characters';
 root.appendChild(subTitle1);
 root.appendChild(showCharacters);
 const allCharacters=allFilms[0].people;
-for (let i=0; i<allCharacters.length; i++)
-{
+for (let i=0; i<allCharacters.length; i++){
     const characterCard=document.createElement('div');
     characterCard.className='character-card';
     const characterPhoto=document.createElement('div');
