@@ -72,11 +72,11 @@ allInformation.appendChild(infoDirector);
 allInformation.appendChild(infoProducer);
 allInformation.appendChild(infoScore);
 allInformation.appendChild(infoDescription);
+
 const subTitle1=document.createElement('h2');
 subTitle1.innerText='Characters';
 const showCharacters=document.createElement('div');
 showCharacters.className='show-characters';
-
 root.appendChild(subTitle1);
 root.appendChild(showCharacters);
 const allCharacters=allFilms[0].people;
@@ -84,40 +84,59 @@ for (let i=0; i<allCharacters.length; i++)
 {
     const characterCard=document.createElement('div');
     characterCard.className='character-card';
+    const characterPhoto=document.createElement('div');
+    characterPhoto.className='character-photo';
     const character=document.createElement('img');
     character.src=allCharacters[i].img;
     const characterInfo=document.createElement('p');
     characterInfo.innerText=allCharacters[i].name+'\nAge: '+allCharacters[i].age+'\nGender: '+allCharacters[i].gender;
     showCharacters.appendChild(characterCard);
-    characterCard.appendChild(character);
+    characterCard.appendChild(characterPhoto)
     characterCard.appendChild(characterInfo);
-    
-    
+    characterPhoto.appendChild(character);
 }
+const subTitle2=document.createElement('h2');
+subTitle2.innerText='Locations';
+const showLocations=document.createElement('div');
+showLocations.className='show-locations';
+root.appendChild(subTitle2);
+root.appendChild(showLocations);
 const allLocations=allFilms[0].locations;
-for(let i=0; i<allLocations.length; i++)
-{
+for(let i=0; i<allLocations.length; i++){
+    const locationCard=document.createElement('div');
+    locationCard.className='location-card';
+    const locationPhoto=document.createElement('div');
+    locationPhoto.className='location-photo';
     const location=document.createElement('img');
     location.src=allLocations[i].img;
     const nameLocation=document.createElement('p');
     nameLocation.innerHTML=allLocations[i].name;
-    cardFilm.appendChild(location);
-    cardFilm.appendChild(nameLocation);
+    showLocations.appendChild(locationCard);
+    locationCard.appendChild(locationPhoto);
+    locationPhoto.appendChild(location);
+    locationCard.appendChild(nameLocation);
 }
-
-const allVehicules=allFilms[0].vehicles;
-for (let i=0; i<allVehicules.length; i++)
-{
-    const vehicule=document.createElement('img');
-    vehicule.src=allVehicules[i].img;
-    const nameVehicule=document.createElement('p');
-    nameVehicule.innerHTML=allVehicules[i].name;
-    cardFilm.appendChild(vehicule);
-    cardFilm.appendChild(nameVehicule);
-
+const subTitle3=document.createElement('h2');
+subTitle3.innerText='Vehicles';
+const showVehicles=document.createElement('div');
+showVehicles.className='show-vehicles';
+root.appendChild(subTitle3);
+root.appendChild(showVehicles);
+const allVehicles=allFilms[0].vehicles;
+for (let i=0; i<allVehicles.length; i++){
+    const vehicleCard=document.createElement('div');
+    vehicleCard.className='vehicle-card';
+    const vehiclePhoto=document.createElement('div');
+    vehiclePhoto.className='vehicle-photo';
+    const vehicle=document.createElement('img');
+    vehicle.src=allVehicles[i].img;
+    const nameVehicle=document.createElement('p');
+    nameVehicle.innerHTML=allVehicles[i].name;
+    showVehicles.appendChild(vehicleCard);
+    vehicleCard.appendChild(vehiclePhoto);
+    vehiclePhoto.appendChild(vehicle);
+    vehicleCard.appendChild(nameVehicle);
 }
-
-
 const footer = document.createElement('footer');
 footer.innerText = 'Creado por Brenda Aguilar y Cami Flores';
 root.appendChild(footer);

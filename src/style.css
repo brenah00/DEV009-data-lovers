@@ -85,7 +85,35 @@ footer{
     grid-template-columns: 30% 70%;
    
 }
-.character-card >img{
-   
+
+.character-photo >img{
     object-fit: cover;
+    width: 100%;
+    height: 100px;
+}
+.show-locations{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.location-card{
+    width: 100%;
+}
+.location-photo >img{
+    object-fit: cover;
+    width: 100%;
+    height: 100px;
+}
+.show-vehicles{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.vehicle-card{
+    width: 100%;
+}
+.vehicle-photo >img{
+    object-fit: cover;
+    width: 100%;
+    height: 100px;
 }
