@@ -5,7 +5,6 @@ import data from './data/ghibli/ghibli.js';
 //console.log(example, data);
 const allFilms = data.films;
 const root = document.getElementById('root');
-
 const header = document.createElement('header');
 const imgHeader1 = document.createElement('img');
 //imgHeader1.src = 'https://static.wikia.nocookie.net/studioghibli/images/d/d4/Studio_Ghibli.png/revision/latest/scale-to-width-down/439?cb=20200410033324&path-prefix=es';
@@ -13,16 +12,28 @@ const imgHeader1 = document.createElement('img');
 imgHeader1.src = 'https://upload.wikimedia.org/wikipedia/commons/8/86/Studio_Ghibli_portal_logo.png';
 root.appendChild(header);
 header.appendChild(imgHeader1);
+//creación de vistas
+const view1 = document.createElement('div');
+const view2=document.createElement('div');
+root.appendChild(view1);
+root.appendChild(view2);
+view1.style.display='block';
+view2.style.display='none';
+//al clickear una pelicula, muestra su tarjeta con toda la información en la segunda vista
 
+
+
+
+// inicia vista 1
 
 const titlePage = document.createElement('h1');
 titlePage.innerText = 'Films';
-root.appendChild(titlePage);
+view1.appendChild(titlePage);
 //Se muestran todas las películas dentro de un contenedor
 //Vamos a imprimir todas las películas y poster
 const section = document.createElement('div');
 section.className= 'films-section';
-root.appendChild(section);
+view1.appendChild(section);
 
 for(let i=0; i < allFilms.length ; i++){
     //declaramos la seccion, poster y nombre
@@ -30,9 +41,10 @@ for(let i=0; i < allFilms.length ; i++){
     containerFilm.className = 'film-name';
     const posterContainer = document.createElement('div');
     posterContainer.className = 'poster-container';
+    posterContainer.value = i;
     const poster = document.createElement('img');
     poster.src = allFilms[i].poster; 
-    .value
+    
     //poster.alt = allFilms[i].title;
     poster.className = 'poster-class';
     const titulo = document.createElement('p');
@@ -42,12 +54,17 @@ for(let i=0; i < allFilms.length ; i++){
     posterContainer.appendChild(poster);
     containerFilm.appendChild(titulo);
 }
-
+//cierre vista 1
+// inicio vista 2
+let index=1;
+const boton1=document.createElement('button');
+boton1.innerText='Volver';
+view2.appendChild(boton1);
 const cardFilm = document.createElement('div');
 cardFilm.className= 'card-film';
-root.appendChild(cardFilm);
+view2.appendChild(cardFilm);
 const poster = document.createElement('img');
-poster.src = allFilms[0].poster;
+poster.src = allFilms[index].poster;
 //poster.className='poster-class';
 const allInformation=document.createElement('section');
 const titleFilm = document.createElement('h1');
@@ -78,8 +95,8 @@ const subTitle1=document.createElement('h2');
 subTitle1.innerText='Characters';
 const showCharacters=document.createElement('div');
 showCharacters.className='show-characters';
-root.appendChild(subTitle1);
-root.appendChild(showCharacters);
+view2.appendChild(subTitle1);
+view2.appendChild(showCharacters);
 const allCharacters=allFilms[0].people;
 for (let i=0; i<allCharacters.length; i++){
     const characterCard=document.createElement('div');
@@ -99,8 +116,8 @@ const subTitle2=document.createElement('h2');
 subTitle2.innerText='Locations';
 const showLocations=document.createElement('div');
 showLocations.className='show-locations';
-root.appendChild(subTitle2);
-root.appendChild(showLocations);
+view2.appendChild(subTitle2);
+view2.appendChild(showLocations);
 const allLocations=allFilms[0].locations;
 for(let i=0; i<allLocations.length; i++){
     const locationCard=document.createElement('div');
@@ -120,8 +137,8 @@ const subTitle3=document.createElement('h2');
 subTitle3.innerText='Vehicles';
 const showVehicles=document.createElement('div');
 showVehicles.className='show-vehicles';
-root.appendChild(subTitle3);
-root.appendChild(showVehicles);
+view2.appendChild(subTitle3);
+view2.appendChild(showVehicles);
 const allVehicles=allFilms[0].vehicles;
 for (let i=0; i<allVehicles.length; i++){
     const vehicleCard=document.createElement('div');
@@ -137,9 +154,27 @@ for (let i=0; i<allVehicles.length; i++){
     vehiclePhoto.appendChild(vehicle);
     vehicleCard.appendChild(nameVehicle);
 }
+//cierre vista 2
+
+
 const footer = document.createElement('footer');
 footer.innerText = 'Creado por Brenda Aguilar y Cami Flores';
 root.appendChild(footer);
+
+const boton=document.querySelectorAll('.poster-container');
+const container=boton;
+
+boton.addEventListener('click',function(){
+   // index=container.value;
+    view1.style.display='none';
+    view2.style.display='block';
+});
+
+boton1.addEventListener('click',function(){
+    view1.style.display='block';
+    view2.style.display='none';
+});
+
 
 // tercera prueba
 // cuarta prueba
