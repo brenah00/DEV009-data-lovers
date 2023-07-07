@@ -2,17 +2,17 @@ import { searchByDirector, sortByYearAsc, sortByYearDesc } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
-//console.log(example, data);
 const allFilms = data.films;
-let clicks = 0;
+
 const root = document.getElementById('root');
+
+//Header
 const header = document.createElement('header');
 const imgHeader1 = document.createElement('img');
-//imgHeader1.src = 'https://static.wikia.nocookie.net/studioghibli/images/d/d4/Studio_Ghibli.png/revision/latest/scale-to-width-down/439?cb=20200410033324&path-prefix=es';
-//imgHeader1.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Studio_Ghibli_wordmark.svg/1280px-Studio_Ghibli_wordmark.svg.png';
-imgHeader1.src = 'https://upload.wikimedia.org/wikipedia/commons/8/86/Studio_Ghibli_portal_logo.png';
+imgHeader1.src = 'https://indy-systems.imgix.net/tsa14o3kh1lt3ts7b8vwz6m3atbk?max-w=1000';
 root.appendChild(header);
 header.appendChild(imgHeader1);
+
 //creación de vistas
 const view1 = document.createElement('div');
 const view2=document.createElement('div');
@@ -22,11 +22,7 @@ view1.style.display='block';
 view2.style.display='none';
 //al clickear una pelicula, muestra su tarjeta con toda la información en la segunda vista
 
-
-
-
-// inicia vista 1
-
+// INICIA VISTA 1
 const titlePage = document.createElement('h1');
 titlePage.innerText = 'Films';
 view1.appendChild(titlePage);
@@ -45,8 +41,8 @@ function displayFilms(data){
         posterContainer.className = 'poster-container';
         const poster = document.createElement('img');
         poster.src = data[i].poster; 
-        poster.id = i;//
-        //poster.alt = allFilms[i].title;
+        poster.id = i;
+        poster.alt = allFilms[i].title;
         poster.className = 'poster-class';
         const titulo = document.createElement('p');
         titulo.innerText = data[i].title;
@@ -54,7 +50,7 @@ function displayFilms(data){
         posterContainer.appendChild(poster);
         containerFilm.appendChild(titulo);
         section.appendChild(containerFilm);
-        //
+        //LISTENER DE CADA BOTÓN
         posterContainer.addEventListener('click',function(event){
             view1.style.display='none';
             view2.style.display='block';
@@ -63,8 +59,8 @@ function displayFilms(data){
     }
 }
 displayFilms(allFilms);
-//cierre vista 1
-// inicio vista 2
+//FINALIZA VISTA 1
+//INICIA VISTA 2
 function showAllFilm(film){
     view2.innerHTML= '';
     const boton1=document.createElement('button');
@@ -171,21 +167,8 @@ function showAllFilm(film){
         displayFilms(allFilms);
     });
 }
-//cierre vista 2
-
-
+//FINALIZA VISTA 2
+//Footer
 const footer = document.createElement('footer');
 footer.innerText = 'Creado por Brenda Aguilar y Cami Flores';
 root.appendChild(footer);
-
-/*const botones = document.querySelectorAll('.poster-container');
-botones.forEach( boton => {
-    boton.addEventListener('click',function(event){
-        showAllFilms(event.target.id) ;
-         view1.style.display='none';
-         view2.style.display='block';
-         console.log(clicks);
-    });
-});*/
-//console.log(sortByYearDesc(allFilms));
-console.log(clicks);
