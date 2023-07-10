@@ -5,13 +5,49 @@ import data from './data/ghibli/ghibli.js';
 const allFilms = data.films;
 
 const root = document.getElementById('root');
+//************* FUNCIONES ************//
+//Función que muestra todas las películas del parámetro data
+function displayFilms(data){
+    section.innerHTML= '';
+    for(let i=0; i < data.length ; i++){
+        //declaramos la seccion, poster y nombre
+        const containerFilm = document.createElement('div');
+        containerFilm.className = 'film-name';
+        const posterContainer = document.createElement('div');
+        posterContainer.className = 'poster-container';
+        const poster = document.createElement('img');
+        poster.src = data[i].poster; 
+        //PRUEBA
+        const information = document.createElement('div');
+        information.innerText = data[i].release_date + '\n\nVer más';
+        information.className = 'text-container';
+        //Prueba
+        poster.alt = allFilms[i].title;
+        poster.className = 'poster-class';
+        const titulo = document.createElement('p');
+        titulo.innerText = data[i].title;
+        containerFilm.appendChild(posterContainer);
+        posterContainer.appendChild(poster);
+        //
+        posterContainer.appendChild(information);
+        //
+        containerFilm.appendChild(titulo);
+        section.appendChild(containerFilm);
+        //LISTENER DE CADA BOTÓN
+        posterContainer.addEventListener('click',function(event){
+            view1.style.display='none';
+            view2.style.display='block';
+            showAllFilm(data[i]);
+        });
+    }
+}
 
 //Header
 const header = document.createElement('header');
 const imgHeader1 = document.createElement('img');
 imgHeader1.src = 'https://indy-systems.imgix.net/tsa14o3kh1lt3ts7b8vwz6m3atbk?max-w=1000';
-root.appendChild(header);
 header.appendChild(imgHeader1);
+root.appendChild(header);
 
 //creación de vistas
 const view1 = document.createElement('div');
@@ -31,35 +67,9 @@ view1.appendChild(titlePage);
 const section = document.createElement('div');
 section.className= 'films-section';
 view1.appendChild(section);
-function displayFilms(data){
-    section.innerHTML= '';
-    for(let i=0; i < data.length ; i++){
-        //declaramos la seccion, poster y nombre
-        const containerFilm = document.createElement('div');
-        containerFilm.className = 'film-name';
-        const posterContainer = document.createElement('div');
-        posterContainer.className = 'poster-container';
-        const poster = document.createElement('img');
-        poster.src = data[i].poster; 
-        poster.id = i;
-        poster.alt = allFilms[i].title;
-        poster.className = 'poster-class';
-        const titulo = document.createElement('p');
-        titulo.innerText = data[i].title;
-        containerFilm.appendChild(posterContainer);
-        posterContainer.appendChild(poster);
-        containerFilm.appendChild(titulo);
-        section.appendChild(containerFilm);
-        //LISTENER DE CADA BOTÓN
-        posterContainer.addEventListener('click',function(event){
-            view1.style.display='none';
-            view2.style.display='block';
-            showAllFilm(data[i]);
-        });
-    }
-}
-displayFilms(allFilms);
+displayFilms(allFilms); // Llamamos a la función displayFilms y envia como parametro toda la data a mostrar
 //FINALIZA VISTA 1
+
 //INICIA VISTA 2
 function showAllFilm(film){
     view2.innerHTML= '';
@@ -149,7 +159,6 @@ function showAllFilm(film){
     cardFilm.appendChild(allInformation);
     allInformation.appendChild(titleFilm);
     allInformation.appendChild(year);
-    //cardFilm.appendChild(infoFilm);
     allInformation.appendChild(infoDirector);
     allInformation.appendChild(infoProducer);
     allInformation.appendChild(infoScore);
@@ -168,6 +177,7 @@ function showAllFilm(film){
     });
 }
 //FINALIZA VISTA 2
+
 //Footer
 const footer = document.createElement('footer');
 footer.innerText = 'Creado por Brenda Aguilar y Cami Flores';

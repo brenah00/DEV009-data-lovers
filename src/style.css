@@ -1,13 +1,12 @@
 h1{
     text-align: center;
     font-family: 'Belanosima', sans-serif;
-    /*font-size: 160%;*/
 }
 header{
     width: 100%;
-    height: 120px;
+    height: 100px;
     background-color: #1465A2;
-    text-align: center;
+    display: flex;
 }
 header img{
     height: 120%;
@@ -33,6 +32,10 @@ footer{
     width: 100%;
     text-align: center;
 }
+
+.poster-container{
+    position: relative;
+}
 .poster-container > img{
     border-radius: 15px;
     width: 80%;
@@ -43,11 +46,22 @@ footer{
 }
 
 .poster-container > img:hover{
-    /*filter: opacity(0.4);*/
     filter: brightness(0.4);
     transform: scale(1.1);
-  }
-  
+}
+
+.poster-container > .text-container{
+    display: none;
+    position: absolute;
+    color: #FFFFFF;
+    top: 40%;
+    left: 40%;
+    width: 20%;
+}
+.poster-container:hover .text-container{
+    display: block;
+}
+
   
 .film-name > p{
     font-family: 'Belanosima', sans-serif;
@@ -157,7 +171,4 @@ footer{
 h2{
     font-family: 'Belanosima', sans-serif;
     margin-left: 10%;
-}
-p{
-    margin-left: 3%;
 }

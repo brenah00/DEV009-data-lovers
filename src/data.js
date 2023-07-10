@@ -8,15 +8,13 @@ export const sortByYearAsc = (allFilms) => {
     if (a.release_date > b.release_date) {
         return 1; 
     }
-      if (a.release_date < b.release_date) {
-        return -1;
-      }
-      // a must be equal to b
-      return 0;
+    if (a.release_date < b.release_date) {
+      return -1;
+    }
+    return 0;
   });
 };
-
-
+//FUNCION QUE ORDENA LAS PELICULAS POR AÑO DE LANZAMIENTO DESCENDENTEMENTE
 export const sortByYearDesc = (allFilms) => {
   let sortedList = allFilms.sort(function(a, b){ 
     if (a.release_date < b.release_date) {
@@ -25,7 +23,6 @@ export const sortByYearDesc = (allFilms) => {
     if (a.release_date > b.release_date) {
         return -1;
     }
-    // a must be equal to b
     return 0;
   });
   return sortedList;
