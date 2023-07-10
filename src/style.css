@@ -129,7 +129,13 @@ footer{
     display: grid;
     border-bottom: 1px solid #000000;
     grid-template-columns: 35% 60%;
+
 }
+.character-card >p{
+    padding-left: 5%;
+
+}
+
 .character-photo >img{
     object-fit: cover;
     width: 100%;

@@ -3,6 +3,7 @@ import { searchByDirector, sortByYearAsc, sortByYearDesc } from './data.js';
 import data from './data/ghibli/ghibli.js';
 
 const allFilms = data.films;
+const characters = allFilms[0].people;
 
 const root = document.getElementById('root');
 //************* FUNCIONES ************//
@@ -42,6 +43,38 @@ function displayFilms(data){
     }
 }
 
+//función que muestra todos los caracteres
+/*function displayCharacters(data.people){
+    section.innerHTML= '';
+    for(let i=0; i < data.people.length ; i++){
+        //declaramos la seccion,foto e información de cada personaje
+
+        const showAllCharacters=document.createElement('div');
+        showAllCharacters.className='show-characters';
+        const characterPhoto = document.createElement('figure');
+        characterPhoto.className='character-photo';
+        const infoCharacters=document.createElement('span');
+        infoCharacters.className='information'
+        const characterImg=document.createElement('img');
+        characterImg.src=data[i].img;
+        
+        people.src = data[i].people; 
+        infoCharacters.innerHTML= data.people;
+    
+        showAllCharacters.appendChild(titulo);
+        section.appendChild(showAllCharacters);
+
+        //LISTENER EN EL FILTRO?
+        //posterContainer.addEventListener('click',function(event){
+            view1.style.display='none';
+            view2.style.display='none';
+            view3.style.display='block';
+            showAllFilm(data[i]);
+        };
+    }
+
+// fin funcion caracteres*/
+
 //Header
 const header = document.createElement('header');
 const imgHeader1 = document.createElement('img');
@@ -52,10 +85,15 @@ root.appendChild(header);
 //creación de vistas
 const view1 = document.createElement('div');
 const view2=document.createElement('div');
+const view3=document.createElement('div');
+//const view3=document.createElement('div');
 root.appendChild(view1);
 root.appendChild(view2);
+root.appendChild(view3);
+
 view1.style.display='block';
 view2.style.display='none';
+view3.style.display='none';
 //al clickear una pelicula, muestra su tarjeta con toda la información en la segunda vista
 
 // INICIA VISTA 1
@@ -173,10 +211,57 @@ function showAllFilm(film){
     boton1.addEventListener('click',function(){
         view1.style.display='block';
         view2.style.display='none';
+        view3.style.display='none';
         displayFilms(allFilms);
     });
 }
 //FINALIZA VISTA 2
+
+//INICIA VISTA 3
+//function showAllCharacters(allCharacters){
+    //view3.innerHTML= '';
+    //const boton1=document.createElement('button');
+    //boton1.innerText='Volver';
+    const subTitle1=document.createElement('h2');
+    subTitle1.innerText='Characters';
+    const showCharacters=document.createElement('div');
+    showCharacters.className='show-characters';
+for(let j=0; j<allFilms.length; j++){
+
+
+    const allCharacters=allFilms[j].people;
+    for (let i=0; i<allCharacters.length; i++){
+        const characterCard=document.createElement('div');
+        characterCard.className='character-card';
+        const characterPhoto=document.createElement('div');
+        characterPhoto.className='character-photo';
+        const character=document.createElement('img');
+        character.src=allCharacters[i].img;
+        const characterInfo=document.createElement('p');
+        characterInfo.innerText=allCharacters[i].name+'\nAge: '+allCharacters[i].age+'\nGender: '+allCharacters[i].gender;
+        characterPhoto.appendChild(character);
+        characterCard.appendChild(characterPhoto);
+        characterCard.appendChild(characterInfo);
+        showCharacters.appendChild(characterCard);
+    }
+}
+    root.appendChild(showCharacters);
+
+    
+    console.log('allCharacters');
+   /*view3.appendChild(boton1);
+    view3.appendChild(cardFilm);
+    view3.appendChild(subTitle1);
+    view3.appendChild(showCharacters);*/
+
+   /* boton1.addEventListener('click',function(){
+        view1.style.display='block';
+        view2.style.display='none';
+        view3.style.display='none';
+        displayFilms(allFilms);
+    });*/
+
+//FINALIZA VISTA 3
 
 //Footer
 const footer = document.createElement('footer');
