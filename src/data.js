@@ -6,7 +6,7 @@ export const searchByDirector = (allFilms,director) => {
 export const sortByYearAsc = (allFilms) => {
   return allFilms.sort(function(a, b){ 
     if (a.release_date > b.release_date) {
-        return 1; 
+      return 1; 
     }
     if (a.release_date < b.release_date) {
       return -1;
@@ -18,16 +18,27 @@ export const sortByYearAsc = (allFilms) => {
 export const sortByYearDesc = (allFilms) => {
   let sortedList = allFilms.sort(function(a, b){ 
     if (a.release_date < b.release_date) {
-        return 1; 
+      return 1; 
     }
     if (a.release_date > b.release_date) {
-        return -1;
+      return -1;
     }
     return 0;
   });
   return sortedList;
 
 };
+// FUNCION QUE UNE TODOS LOS PERSONAJES EN UNA SOLA LISTA
+export const mergeCharacters =(allFilms) => {
+  const allCharacters=[];
+  for(let i=0; i<allFilms.length; i++){
+    const characters=allFilms[i].people;
+    for (let j=0; j<characters.length; j++){
+      allCharacters.push(characters[j]);
+    }
+  }
+  return allCharacters;
+}
 export const anotherExample = () => {
   return 'OMG';
 };
