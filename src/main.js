@@ -222,6 +222,9 @@ function showAllFilm(film){
     //view3.innerHTML= '';
     //const boton1=document.createElement('button');
     //boton1.innerText='Volver';
+    let intento=allFilms[0].people;
+    intento.push(allFilms[1].people);
+    console.log(intento);
     const subTitle1=document.createElement('h2');
     subTitle1.innerText='Characters';
     const showCharacters=document.createElement('div');
