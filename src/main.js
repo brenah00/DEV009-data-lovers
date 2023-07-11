@@ -1,4 +1,4 @@
-import { searchByDirector, sortByYearAsc, sortByYearDesc } from './data.js';
+import { mergeCharacters, searchByDirector, sortByYearAsc, sortByYearDesc } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -222,6 +222,7 @@ function showAllFilm(film){
     //view3.innerHTML= '';
     //const boton1=document.createElement('button');
     //boton1.innerText='Volver';
+    console.log(mergeCharacters(allFilms));
     const subTitle1=document.createElement('h2');
     subTitle1.innerText='Characters';
     const showCharacters=document.createElement('div');
