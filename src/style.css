@@ -71,37 +71,6 @@ footer{
 .film-name > p{
     font-size: 130%;
 }
-@media screen and (max-width: 1200px){
-    .films-section{
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .show-characters{
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-@media screen and (max-width: 1024px){
-    .films-section{
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .poster-container > img{
-        height: 400px;
-    }
-    .show-characters{
-        grid-template-columns: repeat(2, 1fr);
-    }
-    /*.character-photo >img{
-        height: auto;
-    }*/
-}
-@media screen and (max-width: 414px){
-    .films-section{
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .show-characters{
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
 .poster-class{
     width: 200px;
 }
@@ -146,14 +115,15 @@ footer{
     width: 90%;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(4,1fr);
 }
 .location-card{
     width: 100%;
+    text-align: center;
 }
-.location-photo >img{
+.location-photo > img{
     object-fit: cover;
-    width: 90%;
+    width: 100%;
     height: 300px;
     border-radius: 15px;
 }
@@ -204,4 +174,56 @@ ul > li {
 ul > li:hover {
     background: #FFFFFF;
     color:#1465A2
+}
+@media screen and (max-width: 1024px){
+    .films-section{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .show-characters{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .show-locations{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .show-vehicles{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (max-width: 768px){
+    .films-section{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .poster-container > img{
+        height: 400px;
+    }
+    .show-characters{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .show-locations{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .show-vehicles{
+        grid-template-columns: repeat(2,1fr);
+    }
+    /*.character-photo >img{
+        height: auto;
+    }*/
+}
+@media screen and (max-width: 414px){
+    .card-film{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .films-section{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .show-characters{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .show-locations{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .show-vehicles{
+        grid-template-columns: repeat(1,1fr);
+    }
 }

@@ -140,7 +140,7 @@ function showAllFilm(film){
   view2.innerHTML= '';
   const boton1=document.createElement('button');
   boton1.innerText='Volver';
-  const cardFilm = document.createElement('div');
+  const cardFilm = document.createElement('section');
   cardFilm.className= 'card-film';
   const poster = document.createElement('img');
   poster.src = film.poster;
@@ -159,16 +159,18 @@ function showAllFilm(film){
   infoScore.innerHTML= `<b>Score:  </b>${film.rt_score}`;
   const infoDescription=document.createElement('p');
   infoDescription.innerText=film.description;
-  view2.appendChild(boton1);
-  view2.appendChild(cardFilm);
-  cardFilm.appendChild(poster);
-  cardFilm.appendChild(allInformation);
   allInformation.appendChild(titleFilm);
   allInformation.appendChild(year);
   allInformation.appendChild(infoDirector);
   allInformation.appendChild(infoProducer);
   allInformation.appendChild(infoScore);
   allInformation.appendChild(infoDescription);
+  cardFilm.appendChild(poster);
+  cardFilm.appendChild(allInformation);
+  view2.appendChild(boton1);
+  view2.appendChild(cardFilm);
+  
+  
   //Seccion que muestra los personajes de la película
   const subTitle1=document.createElement('h2');
   subTitle1.innerText='Characters';
@@ -209,7 +211,7 @@ function showAllFilm(film){
 //FINALIZA VISTA 2
 
 //INICIA VISTA 3
-const titleCharacters=document.createElement('h2');
+const titleCharacters=document.createElement('h1');
 titleCharacters.innerText='Characters';
 const showCharacters=document.createElement('div');
 showCharacters.className='show-characters';
