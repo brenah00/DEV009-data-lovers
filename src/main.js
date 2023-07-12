@@ -59,6 +59,7 @@ function displayCharacters(data, section){
 //Función que muestra las locaciones o vehículos
 function displayItems(data, section){
   for (let i=0; i<data.length; i++){
+    section.innerHTML = '';
     const locationCard=document.createElement('div');
     locationCard.className='location-card';
     const locationPhoto=document.createElement('figure');
@@ -97,11 +98,21 @@ header.appendChild(imgHeader1);
 header.appendChild(menu);
 root.appendChild(header);
 
-
+//Listeners de opciones de menú
+menuOptionFilms.addEventListener('click', evento => {
+    view1.style.display='block';
+    view2.style.display='none';
+    view3.style.display='none';
+});
+menuOptionCharacters.addEventListener('click', evento => {
+    view1.style.display='none';
+    view2.style.display='none';
+    view3.style.display='block';
+});
 //creación de vistas
-const view1 = document.createElement('div');
-const view2=document.createElement('div');
-const view3=document.createElement('div');
+const view1 = document.createElement('section');
+const view2 = document.createElement('section');
+const view3 = document.createElement('section');
 //const view3=document.createElement('div');
 root.appendChild(view1);
 root.appendChild(view2);
@@ -198,13 +209,13 @@ function showAllFilm(film){
 //FINALIZA VISTA 2
 
 //INICIA VISTA 3
-/*console.log(mergeCharacters(allFilms));
 const titleCharacters=document.createElement('h2');
 titleCharacters.innerText='Characters';
 const showCharacters=document.createElement('div');
 showCharacters.className='show-characters';
 displayCharacters(mergeCharacters(allFilms), showCharacters);
-root.appendChild(showCharacters);*/
+view3.appendChild(titleCharacters);
+view3.appendChild(showCharacters);
 //FINALIZA VISTA 3
 
 //Footer
