@@ -1,4 +1,4 @@
-import { mergeCharacters, searchByDirector, sortByYearAsc, sortByYearDesc } from './data.js';
+import { searchByGender, mergeCharacters, searchByDirector, sortByYearAsc, sortByYearDesc } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -41,6 +41,7 @@ function displayFilms(data){
 }
 //Función que muestra el arreglo de personajes recibido
 function displayCharacters(data, section){
+  section.innerHTML = '';
   for (let i=0; i<data.length; i++){
     const characterCard=document.createElement('div');
     characterCard.className='character-card';
@@ -274,8 +275,102 @@ const titleCharacters=document.createElement('h1');
 titleCharacters.innerText='Characters';
 const showCharacters=document.createElement('div');
 showCharacters.className='show-characters';
-displayCharacters(mergeCharacters(allFilms), showCharacters);
+const allCharacters = mergeCharacters(allFilms);
+//Sección de filtros
+const filterSectionCharacter = document.createElement('nav');
+filterSectionCharacter.className = 'filter-bar';
+
+const optionGender = document.createElement('select');
+const optionsGender = document.createElement('option');
+optionsGender.innerText = 'Show by Gender';
+optionGender.appendChild(optionsGender);
+
+let genders = [];
+for (let i = 0; i < allCharacters.length; i++) {
+    //En mi arreglo filmDirectors incluye el directior de la película [indice]
+    if (!genders.includes(allCharacters[i].gender)) {
+        genders.push(allCharacters[i].gender);
+    }
+}
+for (let i = 0; i < genders.length; i++) {
+    const optionsGender = document.createElement('option');
+    optionsGender.innerText = genders[i];
+    optionGender.appendChild(optionsGender);
+}
+filterSectionCharacter.appendChild(optionGender);
+/*const optionsGender2 = document.createElement('option');
+optionsGender2.innerText = 'Male';
+const optionsGender2 = document.createElement('option');
+optionsGender1.innerText = 'Female';
+optionGender.appendChild(optionsGender1);
+//Obtiene los nombres de todos los directores*/
+/*
+let filmDirectors = [];
+for (let i = 0; i < allFilms.length; i++) {
+    //En mi arreglo filmDirectors incluye el directior de la película [indice]
+    if (!filmDirectors.includes(allFilms[i].director)) {
+        filmDirectors.push(allFilms[i].director);
+    }
+}
+for (let i = 0; i < filmDirectors.length; i++) {
+    const optionsDirectors = document.createElement('option');
+    //optionsDirectors.id = i;
+    optionsDirectors.innerText = filmDirectors[i];
+    optionDirector.appendChild(optionsDirectors);
+}
+const optionSort = document.createElement('select');
+const optionsSort = document.createElement('option');
+optionsSort.innerText = 'Sort films by release date';
+optionSort.appendChild(optionsSort);
+
+const optionSort1 = document.createElement('option');
+optionSort1.innerText = 'Ascendant';
+const optionSort2 = document.createElement('option');
+optionSort2.innerText = 'Descendant';
+optionSort.appendChild(optionSort1);
+optionSort.appendChild(optionSort2);
+
+filterSection.appendChild(optionDirector);
+filterSection.appendChild(optionSort);
+
+optionDirector.addEventListener('change', evento => {
+    let option = evento.target.options.selectedIndex;
+    if (option === 0) {
+        displayFilms(allFilms);
+    }
+    else {
+        const filtro = searchByDirector(allFilms, filmDirectors[option - 1]);
+        displayFilms(filtro);
+    }
+});
+optionSort.addEventListener('change', evento => {
+    let option = evento.target.options.selectedIndex;
+    switch(option) {
+        case 0:
+            displayFilms(allFilms); break;
+        case 1:
+            displayFilms(sortByYearAsc(allFilms)); break;
+        case 2:
+            displayFilms(sortByYearDesc(allFilms)); break;
+    }
+});
+*/
+optionGender.addEventListener('change', evento => {
+    let option = evento.target.options.selectedIndex;
+    console.log(option)
+    if (option === 0) {
+        displayCharacters(allCharacters, showCharacters);
+    }
+    else {
+        const filter = searchByGender(allCharacters, genders[option - 1]);
+        console.log(filter);
+        displayCharacters(filter, showCharacters);
+    }
+});
+
 view3.appendChild(titleCharacters);
+view3.appendChild(filterSectionCharacter);
+displayCharacters(allCharacters, showCharacters);
 view3.appendChild(showCharacters);
 //FINALIZA VISTA 3
 

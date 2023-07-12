@@ -39,6 +39,10 @@ export const mergeCharacters =(allFilms) => {
   }
   return allCharacters;
 }
+//FUNCIÓN QUE FILTRA LOS PERSONAJES POR GENERO
+export const searchByGender = (allCharacters,gender) => {
+  return allCharacters.filter(character => character.gender === gender);
+};
 export const anotherExample = () => {
   return 'OMG';
 };
