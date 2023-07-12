@@ -16,7 +16,7 @@ export const sortByYearAsc = (allFilms) => {
 };
 //FUNCION QUE ORDENA LAS PELICULAS POR AÑO DE LANZAMIENTO DESCENDENTEMENTE
 export const sortByYearDesc = (allFilms) => {
-  let sortedList = allFilms.sort(function(a, b){ 
+  const sortedList = allFilms.sort(function(a, b){ 
     if (a.release_date < b.release_date) {
       return 1; 
     }
