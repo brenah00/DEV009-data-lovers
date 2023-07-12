@@ -1,4 +1,4 @@
-import { searchByGender, mergeCharacters, searchByDirector, sortByYearAsc, sortByYearDesc } from './data.js';
+import { searchByGender, mergeCharacters, searchByDirector, sortByYearAsc, sortByYearDesc, sortByNameAsc, sortByNameDesc } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -284,10 +284,9 @@ const optionGender = document.createElement('select');
 const optionsGender = document.createElement('option');
 optionsGender.innerText = 'Show by Gender';
 optionGender.appendChild(optionsGender);
-
+//Localiza todos los generos existentes en los personajes
 let genders = [];
 for (let i = 0; i < allCharacters.length; i++) {
-    //En mi arreglo filmDirectors incluye el directior de la película [indice]
     if (!genders.includes(allCharacters[i].gender)) {
         genders.push(allCharacters[i].gender);
     }
@@ -298,6 +297,20 @@ for (let i = 0; i < genders.length; i++) {
     optionGender.appendChild(optionsGender);
 }
 filterSectionCharacter.appendChild(optionGender);
+
+const optionSortCharacters = document.createElement('select');
+const optionsSortCharacters1 = document.createElement('option');
+optionsSortCharacters1.innerText = 'Show by Gender';
+const optionsSortCharacters2 = document.createElement('option');
+optionsSortCharacters2.innerText = 'A - Z';
+const optionsSortCharacters3 = document.createElement('option');
+optionsSortCharacters3.innerText = 'Z - A';
+optionSortCharacters.appendChild(optionsSortCharacters1);
+optionSortCharacters.appendChild(optionsSortCharacters2);
+optionSortCharacters.appendChild(optionsSortCharacters3);
+
+filterSectionCharacter.appendChild(optionSortCharacters);
+
 /*const optionsGender2 = document.createElement('option');
 optionsGender2.innerText = 'Male';
 const optionsGender2 = document.createElement('option');
@@ -367,7 +380,17 @@ optionGender.addEventListener('change', evento => {
         displayCharacters(filter, showCharacters);
     }
 });
-
+optionSortCharacters.addEventListener('change', evento => {
+    let option = evento.target.options.selectedIndex;
+    switch(option) {
+        case 0:
+            displayCharacters(allCharacters, showCharacters);
+        case 1:
+            displayCharacters(sortByNameAsc(allCharacters), showCharacters);  break;
+        case 2:
+            displayCharacters(sortByNameDesc(allCharacters), showCharacters);  break;
+    }
+});
 view3.appendChild(titleCharacters);
 view3.appendChild(filterSectionCharacter);
 displayCharacters(allCharacters, showCharacters);

@@ -26,7 +26,6 @@ export const sortByYearDesc = (allFilms) => {
     return 0;
   });
   return sortedList;
-
 };
 // FUNCION QUE UNE TODOS LOS PERSONAJES EN UNA SOLA LISTA
 export const mergeCharacters =(allFilms) => {
@@ -38,10 +37,34 @@ export const mergeCharacters =(allFilms) => {
     }
   }
   return allCharacters;
-}
+};
 //FUNCIÓN QUE FILTRA LOS PERSONAJES POR GENERO
 export const searchByGender = (allCharacters,gender) => {
   return allCharacters.filter(character => character.gender === gender);
+};
+export const sortByNameAsc = (allCharacters) => {
+  const sortedList = allCharacters.sort(function(a, b){ 
+    if (a.name > b.name) {
+      return 1; 
+    }
+    if (a.name < b.name) {
+      return -1;
+    }
+    return 0;
+  });
+  return sortedList;
+};
+export const sortByNameDesc = (allCharacters) => {
+  const sortedList = allCharacters.sort(function(a, b){ 
+    if (a.name < b.name) {
+      return 1; 
+    }
+    if (a.name > b.name) {
+      return -1;
+    }
+    return 0;
+  });
+  return sortedList;
 };
 export const anotherExample = () => {
   return 'OMG';
