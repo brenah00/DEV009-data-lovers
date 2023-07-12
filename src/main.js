@@ -78,8 +78,25 @@ function displayItems(data, section){
 const header = document.createElement('header');
 const imgHeader1 = document.createElement('img');
 imgHeader1.src = 'https://indy-systems.imgix.net/tsa14o3kh1lt3ts7b8vwz6m3atbk?max-w=1000';
+
+const menu = document.createElement('nav');
+const menuOption = document.createElement('ul');
+menu.className = 'menu-bar';
+const menuOptionHome = document.createElement('li');
+menuOptionHome.innerText = 'HOME';
+const menuOptionFilms = document.createElement('li');
+menuOptionFilms.innerText = 'FILMS';
+const menuOptionCharacters = document.createElement('li');
+menuOptionCharacters.innerText = 'CHARACTERS';
+
+//menuOption.appendChild(menuOptionHome);
+menuOption.appendChild(menuOptionFilms);
+menuOption.appendChild(menuOptionCharacters);
+menu.appendChild(menuOption);
 header.appendChild(imgHeader1);
+header.appendChild(menu);
 root.appendChild(header);
+
 
 //creación de vistas
 const view1 = document.createElement('div');
