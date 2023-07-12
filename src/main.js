@@ -127,6 +127,65 @@ view3.style.display='none';
 const titlePage = document.createElement('h1');
 titlePage.innerText = 'Films';
 view1.appendChild(titlePage);
+//Sección de filtros
+const filterSection = document.createElement('nav');
+filterSection.className = 'filter-bar';
+view1.appendChild(filterSection);
+
+const optionDirector = document.createElement('select');
+const optionsDirectors = document.createElement('option');
+optionsDirectors.innerText = 'Show by Director';
+optionDirector.appendChild(optionsDirectors);
+//Obtiene los nombres de todos los directores
+let filmDirectors = [];
+for (let i = 0; i < allFilms.length; i++) {
+    //En mi arreglo filmDirectors incluye el directior de la película [indice]
+    if (!filmDirectors.includes(allFilms[i].director)) {
+        filmDirectors.push(allFilms[i].director);
+    }
+}
+for (let i = 0; i < filmDirectors.length; i++) {
+    const optionsDirectors = document.createElement('option');
+    //optionsDirectors.id = i;
+    optionsDirectors.innerText = filmDirectors[i];
+    optionDirector.appendChild(optionsDirectors);
+}
+const optionSort = document.createElement('select');
+const optionsSort = document.createElement('option');
+optionsSort.innerText = 'Sort films by release date';
+optionSort.appendChild(optionsSort);
+
+const optionSort1 = document.createElement('option');
+optionSort1.innerText = 'Ascendant';
+const optionSort2 = document.createElement('option');
+optionSort2.innerText = 'Descendant';
+optionSort.appendChild(optionSort1);
+optionSort.appendChild(optionSort2);
+
+filterSection.appendChild(optionDirector);
+filterSection.appendChild(optionSort);
+
+optionDirector.addEventListener('change', evento => {
+    let option = evento.target.options.selectedIndex;
+    if (option === 0) {
+        displayFilms(allFilms);
+    }
+    else {
+        const filtro = searchByDirector(allFilms, filmDirectors[option - 1]);
+        displayFilms(filtro);
+    }
+});
+optionSort.addEventListener('change', evento => {
+    let option = evento.target.options.selectedIndex;
+    switch(option) {
+        case 0:
+            displayFilms(allFilms); break;
+        case 1:
+            displayFilms(sortByYearAsc(allFilms)); break;
+        case 2:
+            displayFilms(sortByYearDesc(allFilms)); break;
+    }
+});
 //Se muestran todas las películas dentro de un contenedor
 //Vamos a imprimir todas las películas y poster
 const section = document.createElement('div');

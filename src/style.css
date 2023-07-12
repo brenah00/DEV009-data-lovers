@@ -175,6 +175,22 @@ ul > li:hover {
     background: #FFFFFF;
     color:#1465A2
 }
+.filter-bar{
+    width: 50%;
+    height: 30px;
+    border-radius: 15px;
+    margin: auto;
+    margin-bottom: 20px;
+    background: rgba(125, 176, 191, 0.78);
+}
+.filter-bar > select{
+    width: 40%;
+    padding: 5px;
+    margin-left: 5%;
+    background: rgba(125, 176, 191, 0.78);
+    /*border-radius: 15px;*/
+    border: #1465A2;
+}
 @media screen and (max-width: 1024px){
     .films-section{
         grid-template-columns: repeat(3, 1fr);
