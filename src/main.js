@@ -100,15 +100,15 @@ header.appendChild(menu);
 root.appendChild(header);
 
 //Listeners de opciones de menú
-menuOptionFilms.addEventListener('click', evento => {
-    view1.style.display='block';
-    view2.style.display='none';
-    view3.style.display='none';
+menuOptionFilms.addEventListener('click', function() {
+  view1.style.display='block';
+  view2.style.display='none';
+  view3.style.display='none';
 });
-menuOptionCharacters.addEventListener('click', evento => {
-    view1.style.display='none';
-    view2.style.display='none';
-    view3.style.display='block';
+menuOptionCharacters.addEventListener('click', function() {
+  view1.style.display='none';
+  view2.style.display='none';
+  view3.style.display='block';
 });
 //creación de vistas
 const view1 = document.createElement('section');
@@ -138,18 +138,18 @@ const optionsDirectors = document.createElement('option');
 optionsDirectors.innerText = 'Show by Director';
 optionDirector.appendChild(optionsDirectors);
 //Obtiene los nombres de todos los directores
-let filmDirectors = [];
+const filmDirectors = [];
 for (let i = 0; i < allFilms.length; i++) {
-    //En mi arreglo filmDirectors incluye el directior de la película [indice]
-    if (!filmDirectors.includes(allFilms[i].director)) {
-        filmDirectors.push(allFilms[i].director);
-    }
+  //En mi arreglo filmDirectors incluye el directior de la película [indice]
+  if (!filmDirectors.includes(allFilms[i].director)) {
+    filmDirectors.push(allFilms[i].director);
+  }
 }
 for (let i = 0; i < filmDirectors.length; i++) {
-    const optionsDirectors = document.createElement('option');
-    //optionsDirectors.id = i;
-    optionsDirectors.innerText = filmDirectors[i];
-    optionDirector.appendChild(optionsDirectors);
+  const optionsDirectors = document.createElement('option');
+  //optionsDirectors.id = i;
+  optionsDirectors.innerText = filmDirectors[i];
+  optionDirector.appendChild(optionsDirectors);
 }
 const optionSort = document.createElement('select');
 const optionsSort = document.createElement('option');
@@ -167,25 +167,28 @@ filterSection.appendChild(optionDirector);
 filterSection.appendChild(optionSort);
 
 optionDirector.addEventListener('change', evento => {
-    let option = evento.target.options.selectedIndex;
-    if (option === 0) {
-        displayFilms(allFilms);
-    }
-    else {
-        const filtro = searchByDirector(allFilms, filmDirectors[option - 1]);
-        displayFilms(filtro);
-    }
+  const option = evento.target.options.selectedIndex;
+  if (option === 0) {
+    displayFilms(allFilms);
+  }
+  else {
+    const filtro = searchByDirector(allFilms, filmDirectors[option - 1]);
+    displayFilms(filtro);
+  }
 });
 optionSort.addEventListener('change', evento => {
-    let option = evento.target.options.selectedIndex;
-    switch(option) {
-        case 0:
-            displayFilms(allFilms); break;
-        case 1:
-            displayFilms(sortByYearAsc(allFilms)); break;
-        case 2:
-            displayFilms(sortByYearDesc(allFilms)); break;
-    }
+  const option = evento.target.options.selectedIndex;
+  switch(option) {
+  case 0:
+    displayFilms(allFilms); 
+    break;
+  case 1:
+    displayFilms(sortByYearAsc(allFilms)); 
+    break;
+  case 2:
+    displayFilms(sortByYearDesc(allFilms)); 
+    break;
+  }
 });
 //Se muestran todas las películas dentro de un contenedor
 //Vamos a imprimir todas las películas y poster
@@ -285,16 +288,16 @@ const optionsGender = document.createElement('option');
 optionsGender.innerText = 'Show by Gender';
 optionGender.appendChild(optionsGender);
 //Localiza todos los generos existentes en los personajes
-let genders = [];
+const genders = [];
 for (let i = 0; i < allCharacters.length; i++) {
-    if (!genders.includes(allCharacters[i].gender)) {
-        genders.push(allCharacters[i].gender);
-    }
+  if (!genders.includes(allCharacters[i].gender)) {
+    genders.push(allCharacters[i].gender);
+  }
 }
 for (let i = 0; i < genders.length; i++) {
-    const optionsGender = document.createElement('option');
-    optionsGender.innerText = genders[i];
-    optionGender.appendChild(optionsGender);
+  const optionsGender = document.createElement('option');
+  optionsGender.innerText = genders[i];
+  optionGender.appendChild(optionsGender);
 }
 filterSectionCharacter.appendChild(optionGender);
 
@@ -312,27 +315,25 @@ optionSortCharacters.appendChild(optionsSortCharacters3);
 filterSectionCharacter.appendChild(optionSortCharacters);
 
 optionGender.addEventListener('change', evento => {
-    let option = evento.target.options.selectedIndex;
-    console.log(option)
-    if (option === 0) {
-        displayCharacters(allCharacters, showCharacters);
-    }
-    else {
-        const filter = searchByGender(allCharacters, genders[option - 1]);
-        //console.log(filter);
-        displayCharacters(filter, showCharacters);
-    }
+  const option = evento.target.options.selectedIndex;
+  if (option === 0) {
+    displayCharacters(allCharacters, showCharacters);
+  }
+  else {
+    const filter = searchByGender(allCharacters, genders[option - 1]);
+    displayCharacters(filter, showCharacters);
+  }
 });
 optionSortCharacters.addEventListener('change', evento => {
-    let option = evento.target.options.selectedIndex;
-    switch(option) {
-        case 0:
-            displayCharacters(allCharacters, showCharacters);
-        case 1:
-            displayCharacters(sortByNameAsc(allCharacters), showCharacters);  break;
-        case 2:
-            displayCharacters(sortByNameDesc(allCharacters), showCharacters);  break;
-    }
+  const option = evento.target.options.selectedIndex;
+  switch(option) {
+  case 0:
+    displayCharacters(allCharacters, showCharacters); break;
+  case 1:
+    displayCharacters(sortByNameAsc(allCharacters), showCharacters);  break;
+  case 2:
+    displayCharacters(sortByNameDesc(allCharacters), showCharacters);  break;
+  }
 });
 view3.appendChild(titleCharacters);
 view3.appendChild(filterSectionCharacter);
