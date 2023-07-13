@@ -225,7 +225,8 @@ const orderedByYearAsc = [
     ]
   }
 ];
-const orderedByYearDesc = [ 
+
+const orderedByYearDesc = [
   {
     "title": "Ponyo on the Cliff by the Sea",
     "director": "Hayao Miyazaki",
@@ -282,6 +283,7 @@ const orderedByYearDesc = [
     ]
   },
 ];
+
 const orderNamesAToZ = [
   {
     "name": "Aiko",
@@ -451,6 +453,57 @@ describe('sortByYearDesc', () => {
   it('Devuelve arreglo con las películas ordenadas por el año de lanzamiento de forma descendente', () => {
     expect( sortByYearDesc(orderedByYearAsc)).toEqual(orderedByYearDesc);
   });
+  
+  it('debería devolver una lista ordenada en orden descendente por fecha de lanzamiento', () => {
+    const films = [
+      { title: 'Ponyo on the Cliff by the Sea', release_date: '2022' },
+      { title: 'Pom Poko', release_date: '2021' },
+      { title: 'Only Yesterday', release_date: '2023' },
+    ];
+    const sortedFilms = sortByYearDesc(films);
+    expect(sortedFilms).toEqual([
+      { title: 'Only Yesterday', release_date: '2023' },
+      { title: 'Ponyo on the Cliff by the Sea', release_date: '2022' },
+      { title: 'Pom Poko', release_date: '2021' },
+    ]);
+  });
+  it('debería devolver una lista vacía si no se proporcionan películas', () => {
+    const films = [];
+    const sortedFilms = sortByYearDesc(films);
+    expect(sortedFilms).toEqual([]);
+  });
+  it('debería devolver la lista original si solo hay una película en el arreglo', () => {
+    const films = [{ title: 'Ponyo on the Cliff by the Sea', release_date: '2022' }];
+    const sortedFilms = sortByYearDesc(films);
+    expect(sortedFilms).toEqual([{ title: 'Ponyo on the Cliff by the Sea', release_date: '2022' }]);
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
 describe('sortByNameAsc', () => {
   it('es una funcion', ()=> {
@@ -577,3 +630,4 @@ describe('percentageGender', () => {
     expect(percentageGender(allCharacters,'Female')).toBe('71.43');
   });
 });
+
