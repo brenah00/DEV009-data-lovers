@@ -1,4 +1,4 @@
-import {searchByGender, mergeCharacters, searchByDirector, sortByYearAsc, sortByYearDesc, sortByNameAsc, sortByNameDesc} from '../src/data.js';
+import {searchByGender, mergeCharacters, searchByDirector, sortByYearAsc, sortByYearDesc, sortByNameAsc, sortByNameDesc, percentageGender} from '../src/data.js';
 
 const films = [ 
   {
@@ -566,5 +566,14 @@ describe('sortByNameDesc', () => {
     ]);
   });
 });
-
-
+describe('percentageGender', () => {
+  it('es una funcion', ()=> {
+    expect(typeof percentageGender).toBe('function');
+  });
+  it('Muestra porcentaje de personajes masculinos respecto del total de personajes', ()=> {
+    expect(percentageGender(allCharacters,'Male')).toBe('28.57');
+  });
+  it('Muestra porcentaje de personajes femeninos respecto del total de personajes', ()=> {
+    expect(percentageGender(allCharacters,'Female')).toBe('71.43');
+  });
+});
