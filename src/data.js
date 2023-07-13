@@ -23,7 +23,6 @@ export const sortByYearDesc = (allFilms) => {
     if (a.release_date > b.release_date) {
       return -1;
     }
-    //return 0;
   });
   return sortedList;
 };
@@ -66,7 +65,3 @@ export const sortByNameDesc = (allCharacters) => {
   });
   return sortList;
 };
-/*export const anotherExample = () => {
-  return 'OMG';
-};*/
-// probando probando
