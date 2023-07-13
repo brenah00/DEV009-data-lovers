@@ -145,7 +145,6 @@ footer{
 h2{
     margin-left: 10%;
 }
-
 .menu-bar{
     /*height: 100px;*/
     width: 60%;
@@ -242,4 +241,10 @@ ul > li:hover {
     .show-vehicles{
         grid-template-columns: repeat(1,1fr);
     }
+}
+#percentageGender{
+    text-align: center;
+}
+#button-back{
+    padding-top: 10px;
 }

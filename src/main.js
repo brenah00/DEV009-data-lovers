@@ -1,4 +1,4 @@
-import { searchByGender, mergeCharacters, searchByDirector, sortByYearAsc, sortByYearDesc, sortByNameAsc, sortByNameDesc } from './data.js';
+import { searchByGender, mergeCharacters, searchByDirector, sortByYearAsc, sortByYearDesc, sortByNameAsc, sortByNameDesc, percentageGender } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -201,8 +201,9 @@ displayFilms(allFilms); // Llamamos a la función displayFilms y envia como para
 //INICIA VISTA 2
 function showAllFilm(film){
   view2.innerHTML= '';
-  const boton1=document.createElement('button');
-  boton1.innerText='Volver';
+  const button1=document.createElement('button');
+  button1.id = 'button-back';
+  button1.innerText='Back to films';
   const cardFilm = document.createElement('section');
   cardFilm.className= 'card-film';
   const poster = document.createElement('img');
@@ -230,7 +231,7 @@ function showAllFilm(film){
   allInformation.appendChild(infoDescription);
   cardFilm.appendChild(poster);
   cardFilm.appendChild(allInformation);
-  view2.appendChild(boton1);
+  view2.appendChild(button1);
   view2.appendChild(cardFilm);
   
   
@@ -264,7 +265,7 @@ function showAllFilm(film){
     view2.appendChild(showVehicles);
   }
 
-  boton1.addEventListener('click',function(){
+  button1.addEventListener('click',function(){
     view1.style.display='block';
     view2.style.display='none';
     view3.style.display='none';
@@ -278,6 +279,8 @@ const titleCharacters=document.createElement('h1');
 titleCharacters.innerText='Characters';
 const showCharacters=document.createElement('div');
 showCharacters.className='show-characters';
+const percentageByGender = document.createElement('p');
+percentageByGender.id = 'percentageGender';
 const allCharacters = mergeCharacters(allFilms);
 //Sección de filtros
 const filterSectionCharacter = document.createElement('nav');
@@ -317,9 +320,11 @@ filterSectionCharacter.appendChild(optionSortCharacters);
 optionGender.addEventListener('change', evento => {
   const option = evento.target.options.selectedIndex;
   if (option === 0) {
+    percentageByGender.innerText = '';
     displayCharacters(allCharacters, showCharacters);
   }
   else {
+    percentageByGender.innerText = 'The percentage of '+ genders[option - 1] + ' characters is '+ percentageGender(allCharacters, genders[option - 1]) + '%';
     const filter = searchByGender(allCharacters, genders[option - 1]);
     displayCharacters(filter, showCharacters);
   }
@@ -337,6 +342,7 @@ optionSortCharacters.addEventListener('change', evento => {
 });
 view3.appendChild(titleCharacters);
 view3.appendChild(filterSectionCharacter);
+view3.appendChild(percentageByGender);
 displayCharacters(allCharacters, showCharacters);
 view3.appendChild(showCharacters);
 //FINALIZA VISTA 3

@@ -383,21 +383,37 @@ const orderNamesZToA = [
     "specie": "Human"
   }
 ];
-
+const pruebaNames = [
+  {
+    "name": "Zeniba",
+    "gender": "Female",
+    "specie": "Witch"
+  },
+  {
+    "name": "Okiyo",
+    "gender": "Female",
+    "specie": "Raccoon Dog"
+  },
+  {
+    "name": "Aiko",
+    "gender": "Female",
+    "specie": "Human"
+  }
+];
 describe('searchByGender', () => {
-  it('is a function', () => {
+  it('es una funcion', () => {
     expect(typeof searchByGender).toBe('function');
   });
-  it('Muestra personajes Female', () => {
+  it('Devuelve personajes Female', () => {
     expect(searchByGender(allCharacters,'Female')).toEqual(femaleCharacters);
   });
-  it('Muestra personajes Male', () => {
+  it('Devuelve personajes Male', () => {
     expect(searchByGender(allCharacters,'Male')).toEqual(maleCharacters);
   });
 });
 
 describe('mergeCharacters', () => {
-  it('is a function', () => {
+  it('es una funcion', () => {
     expect(typeof mergeCharacters).toBe('function');
   });
   it('Une los personajes de las peliculas', () => {
@@ -406,60 +422,148 @@ describe('mergeCharacters', () => {
 });
 
 describe('searchByDirector', () => {
-  it('is a function', ()=> {
+  it('es una funcion', ()=> {
     expect(typeof searchByDirector).toBe('function');
   });
   it('Devuelve arreglo con el filme del director Hayao Miyazaki', () => {
     expect(searchByDirector(films,'Hayao Miyazaki')).toEqual(hayaoFilms);
   });
   //Isao Takahata
-  it('Muestra el director de la pelicula', () => {
+  it('Devuelve arreglo con el filme del director Isao Takahata', () => {
     expect(searchByDirector(films,'Isao Takahata')).toEqual(isaoFilms);
   });
 });
 describe('sortByYearAsc', () => {
-  it('is a function', ()=> {
+  it('es una funcion', ()=> {
     expect(typeof sortByYearAsc).toBe('function');
   });
-  it('Muestra el año de lanzamiento de forma ascendente', () => {
+  it('Devuelve arreglo con las películas ordenadas por año de lanzamiento de forma ascendente', () => {
     expect(sortByYearAsc(films)).toEqual(orderedByYearAsc);
   });
 });
 describe('sortByYearDesc', () => {
-  it('is a function', ()=> {
+  it('es una funcion', ()=> {
     expect(typeof sortByYearDesc).toBe('function');
   });
-  it('Muestra el año de lanzamiento de forma descendente', () => {
+  it('Devuelve arreglo con las películas ordenadas por año de lanzamiento de forma descendente', () => {
     expect( sortByYearDesc(films)).toEqual(orderedByYearDesc);
   });
-  it('Muestra el año de lanzamiento de forma descendente', () => {
+  it('Devuelve arreglo con las películas ordenadas por el año de lanzamiento de forma descendente', () => {
     expect( sortByYearDesc(orderedByYearAsc)).toEqual(orderedByYearDesc);
   });
 });
 describe('sortByNameAsc', () => {
-  it('is a function', ()=> {
+  it('es una funcion', ()=> {
     expect(typeof sortByNameAsc).toBe('function');
   });
   it('ordena los personajes por nombre de A hacia Z', ()=>{
     expect(sortByNameAsc(allCharacters)).toEqual(orderNamesAToZ);
   });
   it('ordena los personajes por nombre de A hacia Z', ()=>{
-    expect(sortByNameAsc(orderNamesZToA)).toEqual(orderNamesAToZ);
+    expect(sortByNameAsc(pruebaNames)).toEqual([
+      {
+        "name": "Aiko",
+        "gender": "Female",
+        "specie": "Human"
+      },
+      {
+        "name": "Okiyo",
+        "gender": "Female",
+        "specie": "Raccoon Dog"
+      },
+      {
+        "name": "Zeniba",
+        "gender": "Female",
+        "specie": "Witch"
+      }
+    ]);
   });
 });
 describe('sortByNameDesc', () => {
-  it('is a function', ()=> {
+  it('es una funcion', ()=> {
     expect(typeof sortByNameDesc).toBe('function');
   });
   it('ordena los personajes por nombre de Z hacia A', ()=>{
-    expect(sortByNameDesc(mergeCharacters(films))).toEqual(orderNamesZToA);
+    expect(sortByNameDesc(orderNamesAToZ)).toEqual([
+      {
+        "name": "Zeniba",
+        "gender": "Female",
+        "specie": "Witch"
+      },
+      {
+        "name": "Sosuke",
+        "gender": "Male",
+        "specie": "Human"
+      },
+      {
+        "name": "Shoukichi",
+        "gender": "Male",
+        "specie": "Raccoon Dog"
+      },
+      {
+        "name": "Okiyo",
+        "gender": "Female",
+        "specie": "Raccoon Dog"
+      },
+      {
+        "name": "Granmammare",
+        "gender": "Female",
+        "specie": "Deity"
+      },
+      {
+        "name": "Brunhilde/Ponyo",
+        "gender": "Female",
+        "specie": "Fish/Human"
+      },
+      {
+        "name": "Aiko",
+        "gender": "Female",
+        "specie": "Human"
+      }
+    ]);
   });
-  /*it('ordena los personajes por nombre de Z hacia A', ()=>{
-    expect(sortByNameAsc(orderNamesAToZ)).toEqual(orderNamesZToA);
-  });*/
-  //Esto debería ser error
   it('ordena los personajes por nombre de Z hacia A', ()=>{
-    expect(orderNamesAToZ).toEqual(orderNamesZToA);
+    expect(sortByNameDesc(orderNamesAToZ)).toEqual(orderNamesZToA);
+  });
+
+  it('ordena los personajes por nombre de Z hacia A', ()=>{
+    expect(sortByNameDesc(mergeCharacters(films))).toEqual([
+      {
+        "name": "Zeniba",
+        "gender": "Female",
+        "specie": "Witch"
+      },
+      {
+        "name": "Sosuke",
+        "gender": "Male",
+        "specie": "Human"
+      },
+      {
+        "name": "Shoukichi",
+        "gender": "Male",
+        "specie": "Raccoon Dog"
+      },
+      {
+        "name": "Okiyo",
+        "gender": "Female",
+        "specie": "Raccoon Dog"
+      },
+      {
+        "name": "Granmammare",
+        "gender": "Female",
+        "specie": "Deity"
+      },
+      {
+        "name": "Brunhilde/Ponyo",
+        "gender": "Female",
+        "specie": "Fish/Human"
+      },
+      {
+        "name": "Aiko",
+        "gender": "Female",
+        "specie": "Human"
+      }
+    ]);
   });
 });
 

@@ -65,3 +65,7 @@ export const sortByNameDesc = (allCharacters) => {
   });
   return sortList;
 };
+export const percentageGender = (allCharacters, busqueda) => {
+  const filtro = allCharacters.filter(character => character.gender === busqueda );
+  return ((filtro.length*100) / allCharacters.length).toFixed(2);
+};
