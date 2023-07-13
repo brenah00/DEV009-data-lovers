@@ -1,406 +1,137 @@
 import {searchByGender, mergeCharacters, searchByDirector, sortByYearAsc, sortByYearDesc, sortByNameAsc, sortByNameDesc, percentageGender} from '../src/data.js';
 
 const films = [ 
-  {
-    "title": "Only Yesterday",
+  {"title": "Only Yesterday",
     "director": "Isao Takahata",
     "release_date": "1991",
     "people": [
-      {
-        "name": "Aiko",
-        "gender": "Female",
-        "specie": "Human"
-      }
+      {"name": "Aiko","gender": "Female","specie": "Human"}
     ]
   },
-  {
-    "title": "Ponyo on the Cliff by the Sea",
-    "director": "Hayao Miyazaki",
-    "release_date": "2008",
+  {"title": "Ponyo on the Cliff by the Sea","director": "Hayao Miyazaki","release_date": "2008",
     "people": [
-      {
-        "name": "Sosuke",
-        "gender": "Male",
-        "specie": "Human"
-      },
-      {
-        "name": "Brunhilde/Ponyo",
-        "gender": "Female",
-        "specie": "Fish/Human"
-      },
-      {
-        "name": "Granmammare",
-        "gender": "Female",
-        "specie": "Deity"
-      },
+      {"name": "Sosuke","gender": "Male","specie": "Human"},
+      {"name": "Brunhilde/Ponyo","gender": "Female","specie": "Fish/Human"},
+      {"name": "Granmammare","gender": "Female","specie": "Deity"},
     ]
   },
-  {
-    "title": "Pom Poko",
-    "director": "Isao Takahata",
-    "release_date": "1994",
+  {"title": "Pom Poko","director": "Isao Takahata","release_date": "1994",
     "people": [
-      {
-        "name": "Shoukichi",
-        "gender": "Male",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Okiyo",
-        "gender": "Female",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Zeniba",
-        "gender": "Female",
-        "specie": "Witch"
-      }
+      {"name": "Shoukichi","gender": "Male", "specie": "Raccoon Dog"},
+      { "name": "Okiyo", "gender": "Female", "specie": "Raccoon Dog"},
+      {"name": "Zeniba","gender": "Female","specie": "Witch"}
     ]
   }
 ];
 const isaoFilms = [
-  {
-    "title": "Only Yesterday",
-    "director": "Isao Takahata",
-    "release_date": "1991",
+  {"title": "Only Yesterday","director": "Isao Takahata","release_date": "1991",
     "people": [
-      {
-        "name": "Aiko",
-        "gender": "Female",
-        "specie": "Human"
-      }
+      {"name": "Aiko","gender": "Female","specie": "Human"}
     ]
   },
-  {
-    "title": "Pom Poko",
-    "director": "Isao Takahata",
-    "release_date": "1994",
+  {"title": "Pom Poko","director": "Isao Takahata","release_date": "1994",
     "people": [
-      {
-        "name": "Shoukichi",
-        "gender": "Male",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Okiyo",
-        "gender": "Female",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Zeniba",
-        "gender": "Female",
-        "specie": "Witch"
-      }
+      {"name": "Shoukichi","gender": "Male", "specie": "Raccoon Dog"},
+      {"name": "Okiyo","gender": "Female","specie": "Raccoon Dog"},
+      {"name": "Zeniba","gender": "Female","specie": "Witch"}
     ]
   }
 ];
 const hayaoFilms = [ 
-  {
-    "title": "Ponyo on the Cliff by the Sea",
-    "director": "Hayao Miyazaki",
-    "release_date": "2008",
+  {"title": "Ponyo on the Cliff by the Sea","director": "Hayao Miyazaki","release_date": "2008",
     "people": [
-      {
-        "name": "Sosuke",
-        "gender": "Male",
-        "specie": "Human"
-      },
-      {
-        "name": "Brunhilde/Ponyo",
-        "gender": "Female",
-        "specie": "Fish/Human"
-      },
-      {
-        "name": "Granmammare",
-        "gender": "Female",
-        "specie": "Deity"
-      },
+      {"name": "Sosuke","gender": "Male","specie": "Human"},
+      {"name": "Brunhilde/Ponyo","gender": "Female", "specie": "Fish/Human"},
+      {"name": "Granmammare","gender": "Female","specie": "Deity"},
     ]
   }
 ];
 const allCharacters = [
-  {
-    "name": "Aiko",
-    "gender": "Female",
-    "specie": "Human"
-  },
-  {
-    "name": "Sosuke",
-    "gender": "Male",
-    "specie": "Human"
-  },
-  {
-    "name": "Brunhilde/Ponyo",
-    "gender": "Female",
-    "specie": "Fish/Human"
-  },
-  {
-    "name": "Granmammare",
-    "gender": "Female",
-    "specie": "Deity"
-  },
-  {
-    "name": "Shoukichi",
-    "gender": "Male",
-    "specie": "Raccoon Dog"
-  },
-  {
-    "name": "Okiyo",
-    "gender": "Female",
-    "specie": "Raccoon Dog"
-  },
-  {
-    "name": "Zeniba",
-    "gender": "Female",
-    "specie": "Witch"
-  }
+  {"name": "Aiko", "gender": "Female", "specie": "Human"},
+  {"name": "Sosuke", "gender": "Male","specie": "Human"},
+  {"name": "Brunhilde/Ponyo","gender": "Female","specie": "Fish/Human"},
+  {"name": "Granmammare","gender": "Female","specie": "Deity"},
+  {"name": "Shoukichi", "gender": "Male","specie": "Raccoon Dog"},
+  {"name": "Okiyo","gender": "Female", "specie": "Raccoon Dog"},
+  {"name": "Zeniba","gender": "Female","specie": "Witch"}
 ];
 const maleCharacters = [
-  {
-    "name": "Sosuke",
-    "gender": "Male",
-    "specie": "Human"
-  },
-  {
-    "name": "Shoukichi",
-    "gender": "Male",
-    "specie": "Raccoon Dog"
-  }
+  {"name": "Sosuke","gender": "Male","specie": "Human"},
+  {"name": "Shoukichi","gender": "Male","specie": "Raccoon Dog"}
 ];
 const orderedByYearAsc = [
-  {
-    "title": "Only Yesterday",
-    "director": "Isao Takahata",
-    "release_date": "1991",
+  {"title": "Only Yesterday","director": "Isao Takahata","release_date": "1991",
     "people": [
-      {
-        "name": "Aiko",
-        "gender": "Female",
-        "specie": "Human"
-      }
+      {"name": "Aiko","gender": "Female","specie": "Human"}
     ]
   },
-  {
-    "title": "Pom Poko",
-    "director": "Isao Takahata",
-    "release_date": "1994",
+  {"title": "Pom Poko","director": "Isao Takahata","release_date": "1994",
     "people": [
-      {
-        "name": "Shoukichi",
-        "gender": "Male",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Okiyo",
-        "gender": "Female",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Zeniba",
-        "gender": "Female",
-        "specie": "Witch"
-      }
+      {"name": "Shoukichi","gender": "Male","specie": "Raccoon Dog"},
+      { "name": "Okiyo","gender": "Female","specie": "Raccoon Dog"},
+      {"name": "Zeniba","gender": "Female","specie": "Witch"}
     ]
   },
-  {
-    "title": "Ponyo on the Cliff by the Sea",
-    "director": "Hayao Miyazaki",
-    "release_date": "2008",
+  {"title": "Ponyo on the Cliff by the Sea","director": "Hayao Miyazaki","release_date": "2008",
     "people": [
-      {
-        "name": "Sosuke",
-        "gender": "Male",
-        "specie": "Human"
-      },
-      {
-        "name": "Brunhilde/Ponyo",
-        "gender": "Female",
-        "specie": "Fish/Human"
-      },
-      {
-        "name": "Granmammare",
-        "gender": "Female",
-        "specie": "Deity"
-      },
+      {"name": "Sosuke", "gender": "Male","specie": "Human"},
+      {"name": "Brunhilde/Ponyo","gender": "Female","specie": "Fish/Human"},
+      {"name": "Granmammare","gender": "Female","specie": "Deity"}
     ]
   }
 ];
 
 const orderedByYearDesc = [
-  {
-    "title": "Ponyo on the Cliff by the Sea",
-    "director": "Hayao Miyazaki",
-    "release_date": "2008",
+  {"title": "Ponyo on the Cliff by the Sea","director": "Hayao Miyazaki","release_date": "2008",
     "people": [
-      {
-        "name": "Sosuke",
-        "gender": "Male",
-        "specie": "Human"
-      },
-      {
-        "name": "Brunhilde/Ponyo",
-        "gender": "Female",
-        "specie": "Fish/Human"
-      },
-      {
-        "name": "Granmammare",
-        "gender": "Female",
-        "specie": "Deity"
-      },
+      {"name": "Sosuke","gender": "Male","specie": "Human"},
+      {"name": "Brunhilde/Ponyo","gender": "Female","specie": "Fish/Human"},
+      { "name": "Granmammare","gender": "Female","specie": "Deity"}
     ]
   },
-  {
-    "title": "Pom Poko","director": "Isao Takahata",
-    "release_date": "1994",
+  {"title": "Pom Poko","director": "Isao Takahata","release_date": "1994",
     "people": [
-      {
-        "name": "Shoukichi",
-        "gender": "Male",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Okiyo",
-        "gender": "Female",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Zeniba",
-        "gender": "Female",
-        "specie": "Witch"
-      }
+      {"name": "Shoukichi","gender": "Male","specie": "Raccoon Dog"},
+      {"name": "Okiyo","gender": "Female","specie": "Raccoon Dog"},
+      { "name": "Zeniba","gender": "Female", "specie": "Witch"}
     ]
   },
-  {
-    "title": "Only Yesterday",
-    "director": "Isao Takahata",
-    "release_date": "1991",
+  {"title": "Only Yesterday","director": "Isao Takahata","release_date": "1991",
     "people": [
-      {
-        "name": "Aiko",
-        "gender": "Female",
-        "specie": "Human"
-      }
+      {"name": "Aiko","gender": "Female","specie": "Human"}
     ]
   },
 ];
 
 const orderNamesAToZ = [
-  {
-    "name": "Aiko",
-    "gender": "Female",
-    "specie": "Human"
-  },
-  {
-    "name": "Brunhilde/Ponyo",
-    "gender": "Female",
-    "specie": "Fish/Human"
-  },
-  {
-    "name": "Granmammare",
-    "gender": "Female",
-    "specie": "Deity"
-  },
-  {
-    "name": "Okiyo",
-    "gender": "Female",
-    "specie": "Raccoon Dog"
-  },
-  {
-    "name": "Shoukichi",
-    "gender": "Male",
-    "specie": "Raccoon Dog"
-  },
-  {
-    "name": "Sosuke",
-    "gender": "Male",
-    "specie": "Human"
-  },
-  {
-    "name": "Zeniba",
-    "gender": "Female",
-    "specie": "Witch"
-  }
+  {"name": "Aiko","gender": "Female","specie": "Human"},
+  {"name": "Brunhilde/Ponyo", "gender": "Female","specie": "Fish/Human"},
+  {"name": "Granmammare","gender": "Female","specie": "Deity"},
+  {"name": "Okiyo", "gender": "Female","specie": "Raccoon Dog"},
+  {"name": "Shoukichi","gender": "Male","specie": "Raccoon Dog" },
+  {"name": "Sosuke","gender": "Male","specie": "Human"},
+  {"name": "Zeniba","gender": "Female","specie": "Witch"}
 ];
 const femaleCharacters = [
-  {
-    "name": "Aiko",
-    "gender": "Female",
-    "specie": "Human"
-  },
-  {
-    "name": "Brunhilde/Ponyo",
-    "gender": "Female",
-    "specie": "Fish/Human"
-  },
-  {
-    "name": "Granmammare",
-    "gender": "Female",
-    "specie": "Deity"
-  },
-  {
-    "name": "Okiyo",
-    "gender": "Female",
-    "specie": "Raccoon Dog"
-  },
-  {
-    "name": "Zeniba",
-    "gender": "Female",
-    "specie": "Witch"
-  }
+  {"name": "Aiko","gender": "Female","specie": "Human"},
+  {"name": "Brunhilde/Ponyo","gender": "Female","specie": "Fish/Human"},
+  {"name": "Granmammare","gender": "Female","specie": "Deity"},
+  {"name": "Okiyo","gender": "Female","specie": "Raccoon Dog"},
+  {"name": "Zeniba","gender": "Female","specie": "Witch"}
 ];
 const orderNamesZToA = [
-  {
-    "name": "Zeniba",
-    "gender": "Female",
-    "specie": "Witch"
-  },
-  {
-    "name": "Sosuke",
-    "gender": "Male",
-    "specie": "Human"
-  },
-  {
-    "name": "Shoukichi",
-    "gender": "Male",
-    "specie": "Raccoon Dog"
-  },
-  {
-    "name": "Okiyo",
-    "gender": "Female",
-    "specie": "Raccoon Dog"
-  },
-  {
-    "name": "Granmammare",
-    "gender": "Female",
-    "specie": "Deity"
-  },
-  {
-    "name": "Brunhilde/Ponyo",
-    "gender": "Female",
-    "specie": "Fish/Human"
-  },
-  {
-    "name": "Aiko",
-    "gender": "Female",
-    "specie": "Human"
-  }
+  {"name": "Zeniba","gender": "Female","specie": "Witch"},
+  {"name": "Sosuke","gender": "Male","specie": "Human"},
+  {"name": "Shoukichi","gender": "Male","specie": "Raccoon Dog"},
+  {"name": "Okiyo","gender": "Female","specie": "Raccoon Dog"},
+  { "name": "Granmammare","gender": "Female","specie": "Deity"},
+  {"name": "Brunhilde/Ponyo","gender": "Female","specie": "Fish/Human"},
+  {"name": "Aiko", "gender": "Female","specie": "Human"}
 ];
 const pruebaNames = [
-  {
-    "name": "Zeniba",
-    "gender": "Female",
-    "specie": "Witch"
-  },
-  {
-    "name": "Okiyo",
-    "gender": "Female",
-    "specie": "Raccoon Dog"
-  },
-  {
-    "name": "Aiko",
-    "gender": "Female",
-    "specie": "Human"
-  }
+  {"name": "Zeniba", "gender": "Female","specie": "Witch"},
+  {"name": "Okiyo","gender": "Female", "specie": "Raccoon Dog"},
+  {"name": "Aiko","gender": "Female","specie": "Human"}
 ];
 describe('searchByGender', () => {
   it('es una funcion', () => {
@@ -477,33 +208,6 @@ describe('sortByYearDesc', () => {
     const sortedFilms = sortByYearDesc(films);
     expect(sortedFilms).toEqual([{ title: 'Ponyo on the Cliff by the Sea', release_date: '2022' }]);
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
 describe('sortByNameAsc', () => {
   it('es una funcion', ()=> {
@@ -514,21 +218,9 @@ describe('sortByNameAsc', () => {
   });
   it('ordena los personajes por nombre de A hacia Z', ()=>{
     expect(sortByNameAsc(pruebaNames)).toEqual([
-      {
-        "name": "Aiko",
-        "gender": "Female",
-        "specie": "Human"
-      },
-      {
-        "name": "Okiyo",
-        "gender": "Female",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Zeniba",
-        "gender": "Female",
-        "specie": "Witch"
-      }
+      {"name": "Aiko","gender": "Female","specie": "Human"},
+      {"name": "Okiyo","gender": "Female", "specie": "Raccoon Dog"},
+      { "name": "Zeniba","gender": "Female","specie": "Witch"}
     ]);
   });
 });
@@ -538,41 +230,13 @@ describe('sortByNameDesc', () => {
   });
   it('ordena los personajes por nombre de Z hacia A', ()=>{
     expect(sortByNameDesc(orderNamesAToZ)).toEqual([
-      {
-        "name": "Zeniba",
-        "gender": "Female",
-        "specie": "Witch"
-      },
-      {
-        "name": "Sosuke",
-        "gender": "Male",
-        "specie": "Human"
-      },
-      {
-        "name": "Shoukichi",
-        "gender": "Male",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Okiyo",
-        "gender": "Female",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Granmammare",
-        "gender": "Female",
-        "specie": "Deity"
-      },
-      {
-        "name": "Brunhilde/Ponyo",
-        "gender": "Female",
-        "specie": "Fish/Human"
-      },
-      {
-        "name": "Aiko",
-        "gender": "Female",
-        "specie": "Human"
-      }
+      {"name": "Zeniba","gender": "Female","specie": "Witch"},
+      {"name": "Sosuke","gender": "Male","specie": "Human"},
+      {"name": "Shoukichi","gender": "Male","specie": "Raccoon Dog"},
+      { "name": "Okiyo","gender": "Female","specie": "Raccoon Dog"},
+      { "name": "Granmammare", "gender": "Female","specie": "Deity"},
+      {"name": "Brunhilde/Ponyo","gender": "Female","specie": "Fish/Human"},
+      {"name": "Aiko","gender": "Female","specie": "Human"}
     ]);
   });
   it('ordena los personajes por nombre de Z hacia A', ()=>{
@@ -581,41 +245,13 @@ describe('sortByNameDesc', () => {
 
   it('ordena los personajes por nombre de Z hacia A', ()=>{
     expect(sortByNameDesc(mergeCharacters(films))).toEqual([
-      {
-        "name": "Zeniba",
-        "gender": "Female",
-        "specie": "Witch"
-      },
-      {
-        "name": "Sosuke",
-        "gender": "Male",
-        "specie": "Human"
-      },
-      {
-        "name": "Shoukichi",
-        "gender": "Male",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Okiyo",
-        "gender": "Female",
-        "specie": "Raccoon Dog"
-      },
-      {
-        "name": "Granmammare",
-        "gender": "Female",
-        "specie": "Deity"
-      },
-      {
-        "name": "Brunhilde/Ponyo",
-        "gender": "Female",
-        "specie": "Fish/Human"
-      },
-      {
-        "name": "Aiko",
-        "gender": "Female",
-        "specie": "Human"
-      }
+      {"name": "Zeniba","gender": "Female","specie": "Witch"},
+      {"name": "Sosuke","gender": "Male","specie": "Human"},
+      {"name": "Shoukichi","gender": "Male","specie": "Raccoon Dog"},
+      {"name": "Okiyo","gender": "Female","specie": "Raccoon Dog"},
+      {"name": "Granmammare","gender": "Female","specie": "Deity"},
+      {"name": "Brunhilde/Ponyo","gender": "Female","specie": "Fish/Human"},
+      {"name": "Aiko","gender": "Female","specie": "Human"}
     ]);
   });
 });
