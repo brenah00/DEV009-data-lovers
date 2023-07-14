@@ -36,10 +36,12 @@ footer{
 .film-name{
     width: 100%;
     text-align: center;
+    padding-bottom: 10%;
 }
 .poster-container{
     position: relative;
     width: 80%;
+    margin: auto;
 }
 .poster-container > img{
     border-radius: 15px;
@@ -162,7 +164,7 @@ h2{
 }
 ul > li {
     height: 100%;
-    width: 30%;
+    width: 40%;
     padding-top: 4%;
     font-size: 150%;
     text-align:center;
@@ -224,7 +226,7 @@ ul > li:hover {
         height: auto;
     }*/
 }
-@media screen and (max-width: 414px){
+@media screen and (max-width: 415px){
     .card-film{
         width: 90%;
         grid-template-columns: repeat(1, 1fr);
@@ -240,6 +242,33 @@ ul > li:hover {
     }
     .show-vehicles{
         grid-template-columns: repeat(1,1fr);
+    }
+    header{
+        width: 100%;
+        height: 240px;
+        background-color: #1465A2;
+        flex-direction: column;
+    }
+    header img{
+        height: 80%;
+    }
+    .menu-bar{
+        width: 100%;
+        align-items: center;
+    }
+    .menu-bar > ul {
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        padding-left: 0;
+        margin: 0;
+    }
+    ul > li {
+        width: 100%;
+        border: 1px solid #FFFFFF;     
+    }
+    .filter-bar{
+        width: 90%;
     }
 }
 #percentageGender{
