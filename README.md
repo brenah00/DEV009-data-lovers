@@ -15,8 +15,6 @@ Desarrollo de un sitio web que reúne el trabajo del estudio Ghibli a través de
 
 La solución fue desarrollada considerando que la data puede ser modificada, por ejemplo, si este año hay un nuevo estreno del director Hayao Miyazaki la data se actualiza, entonces se van a poder visualizar esos cambios sin necesidad de directamente modificar el código .
 
-![pokemon-data-to-ui](https://user-images.githubusercontent.com/12631491/218505816-c6d11758-9de4-428f-affb-2a56ea4d68c4.png)
-
 ## 2. Historias de usuario
 
 Para entender las necesidades de los usuarios, generamos una encuesta y dentro de lo que destacó fue:
@@ -154,7 +152,7 @@ Así fuimos trabajando cada historia de usuario por Sprint, con sus respectivos 
 ### Implementación de la Interfaz de Usuario
 
 #### Desktop
-![Implementación Desktop](../DEV009-data-lovers/src/img/Desktop.png)
+![Implementación Desktop](https://github.com/brenah00/DEV009-data-lovers/blob/fe3cf0f6ef08bc5367f9629a9e72fc9bce117479/src/img/Desktop.png)
 ![Implementación Desktop 2](../DEV009-data-lovers/src/img/Desktop_personajes.png)
 
 #### Tablet
