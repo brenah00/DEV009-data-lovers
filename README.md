@@ -117,21 +117,21 @@ Se tomaron en cuenta las necesidades que podían ser cubiertas con lo que la dat
 
 ### Prototipo de baja fidelidad
 
-![Prototipo de baja fidelidad 1](../DEV009-data-lovers/src/img/HU1_PBF.jpg)
+![Prototipo de baja fidelidad 1](https://github.com/brenah00/DEV009-data-lovers/blob/4cd8654c6bbbb9dce7991bf2238d9ec7fd70fe62/src/img/HU1_PBF.jpg)
 
-![Prototipo de baja fidelidad 2](../DEV009-data-lovers/src/img/HU2_PBF.jpg)
+![Prototipo de baja fidelidad 2](https://github.com/brenah00/DEV009-data-lovers/blob/4cd8654c6bbbb9dce7991bf2238d9ec7fd70fe62/src/img/HU2_PBF.jpg)
 
 ### Prototipo de alta fidelidad
 
-![Prototipo de baja fidelidad 1](../DEV009-data-lovers/src/img/HU1_PAF.png)
+![Prototipo de alta fidelidad 1](https://github.com/brenah00/DEV009-data-lovers/blob/4cd8654c6bbbb9dce7991bf2238d9ec7fd70fe62/src/img/HU1_PAF.png)
 
-![Prototipo de baja fidelidad 2](../DEV009-data-lovers/src/img/HU2_PAF.png)
+![Prototipo de alta fidelidad 2](https://github.com/brenah00/DEV009-data-lovers/blob/4cd8654c6bbbb9dce7991bf2238d9ec7fd70fe62/src/img/HU2_PAF.png)
 
-![Prototipo de baja fidelidad 3](../DEV009-data-lovers/src/img/HU3_PAF.png)
+![Prototipo de alta fidelidad 3](https://github.com/brenah00/DEV009-data-lovers/blob/4cd8654c6bbbb9dce7991bf2238d9ec7fd70fe62/src/img/HU3_PAF.png)
 
-![Prototipo de baja fidelidad 4](../DEV009-data-lovers/src/img/HU4_PAF.png)
+![Prototipo de alta fidelidad 4](https://github.com/brenah00/DEV009-data-lovers/blob/4cd8654c6bbbb9dce7991bf2238d9ec7fd70fe62/src/img/HU4_PAF.png)
 
-![Prototipo de baja fidelidad 5](../DEV009-data-lovers/src/img/PAF_calculo_agregado.png)
+![Prototipo de alta fidelidad 5](https://github.com/brenah00/DEV009-data-lovers/blob/4cd8654c6bbbb9dce7991bf2238d9ec7fd70fe62/src/img/PAF_calculo_agregado.png)
 
 ### Testeos de usabilidad
 
@@ -152,12 +152,12 @@ Así fuimos trabajando cada historia de usuario por Sprint, con sus respectivos 
 ### Implementación de la Interfaz de Usuario
 
 #### Desktop
-![Implementación Desktop](https://github.com/brenah00/DEV009-data-lovers/blob/fe3cf0f6ef08bc5367f9629a9e72fc9bce117479/src/img/Desktop.png)
-![Implementación Desktop 2](../DEV009-data-lovers/src/img/Desktop_personajes.png)
+![Implementación Desktop 1](https://github.com/brenah00/DEV009-data-lovers/blob/fe3cf0f6ef08bc5367f9629a9e72fc9bce117479/src/img/Desktop.png)
+![Implementación Desktop 2](https://github.com/brenah00/DEV009-data-lovers/blob/4cd8654c6bbbb9dce7991bf2238d9ec7fd70fe62/src/img/Desktop_personajes.png)
 
 #### Tablet
-![Implementación Desktop](../DEV009-data-lovers/src/img/Responsive_tablet.png)
-![Implementación Desktop 2](../DEV009-data-lovers/src/img/Responsive_tablet_film.png)
+![Implementación Tablet 1](https://github.com/brenah00/DEV009-data-lovers/blob/4cd8654c6bbbb9dce7991bf2238d9ec7fd70fe62/src/img/Responsive_tablet.png)
+![Implementación Tablet 2](https://github.com/brenah00/DEV009-data-lovers/blob/4cd8654c6bbbb9dce7991bf2238d9ec7fd70fe62/src/img/Responsive_tablet_film.png)
 
 #### Movil
-![Implementación Desktop](../DEV009-data-lovers/src/img/Responsive_telefono.png)
+![Implementación Movil](https://github.com/brenah00/DEV009-data-lovers/blob/4cd8654c6bbbb9dce7991bf2238d9ec7fd70fe62/src/img/Responsive_telefono.png)
