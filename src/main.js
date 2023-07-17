@@ -13,15 +13,13 @@ function displayFilms(data){
   //declaramos la seccion, poster y nombre
     const containerFilm = document.createElement('div');
     containerFilm.className = 'film-name';
-    const posterContainer = document.createElement('div');
+    const posterContainer = document.createElement('figure');
     posterContainer.className = 'poster-container';
     const poster = document.createElement('img');
     poster.src = data[i].poster; 
-    //PRUEBA
     const information = document.createElement('div');
     information.innerText = data[i].release_date + '\n\nVer más';
     information.className = 'text-container';
-    //Prueba
     poster.alt = allFilms[i].title;
     poster.className = 'poster-class';
     const titulo = document.createElement('p');
@@ -84,14 +82,11 @@ imgHeader1.src = 'https://indy-systems.imgix.net/tsa14o3kh1lt3ts7b8vwz6m3atbk?ma
 const menu = document.createElement('nav');
 const menuOption = document.createElement('ul');
 menu.className = 'menu-bar';
-const menuOptionHome = document.createElement('li');
-menuOptionHome.innerText = 'HOME';
 const menuOptionFilms = document.createElement('li');
 menuOptionFilms.innerText = 'FILMS';
 const menuOptionCharacters = document.createElement('li');
 menuOptionCharacters.innerText = 'CHARACTERS';
 
-//menuOption.appendChild(menuOptionHome);
 menuOption.appendChild(menuOptionFilms);
 menuOption.appendChild(menuOptionCharacters);
 menu.appendChild(menuOption);
@@ -147,7 +142,7 @@ for (let i = 0; i < allFilms.length; i++) {
 }
 for (let i = 0; i < filmDirectors.length; i++) {
   const optionsDirectors = document.createElement('option');
-  //optionsDirectors.id = i;
+
   optionsDirectors.innerText = filmDirectors[i];
   optionDirector.appendChild(optionsDirectors);
 }
@@ -191,7 +186,6 @@ optionSort.addEventListener('change', evento => {
   }
 });
 //Se muestran todas las películas dentro de un contenedor
-//Vamos a imprimir todas las películas y poster
 const section = document.createElement('div');
 section.className= 'films-section';
 view1.appendChild(section);
@@ -213,8 +207,6 @@ function showAllFilm(film){
   titleFilm.innerText = film.title;
   const year = document.createElement('h2');
   year.innerText = film.release_date;
-  //const infoFilm =document.createElement('p');
-  //infoFilm.innerText ='Director: '+allFilms[0].director+'\nProducer: '+allFilms[0].producer+'\nScore: '+allFilms[0].rt_score+'\n\n'+allFilms[0].description;
   const infoDirector =document.createElement('p');
   infoDirector.innerHTML =`<b>Director: </b>${film.director}`;
   const infoProducer=document.createElement('p');
@@ -282,6 +274,7 @@ showCharacters.className='show-characters';
 const percentageByGender = document.createElement('p');
 percentageByGender.id = 'percentageGender';
 const allCharacters = mergeCharacters(allFilms);
+let charactersToShow;
 //Sección de filtros
 const filterSectionCharacter = document.createElement('nav');
 filterSectionCharacter.className = 'filter-bar';
@@ -321,23 +314,26 @@ optionGender.addEventListener('change', evento => {
   const option = evento.target.options.selectedIndex;
   if (option === 0) {
     percentageByGender.innerText = '';
-    displayCharacters(allCharacters, showCharacters);
+    charactersToShow = allCharacters;
+    displayCharacters(charactersToShow, showCharacters);
   }
   else {
     percentageByGender.innerText = 'The percentage of '+ genders[option - 1] + ' characters is '+ percentageGender(allCharacters, genders[option - 1]) + '%';
-    const filter = searchByGender(allCharacters, genders[option - 1]);
-    displayCharacters(filter, showCharacters);
+    charactersToShow = searchByGender(allCharacters, genders[option - 1]);
+    displayCharacters(charactersToShow, showCharacters);
   }
 });
 optionSortCharacters.addEventListener('change', evento => {
   const option = evento.target.options.selectedIndex;
   switch(option) {
   case 0:
-    displayCharacters(allCharacters, showCharacters); break;
+    displayCharacters(charactersToShow, showCharacters); break;
   case 1:
-    displayCharacters(sortByNameAsc(allCharacters), showCharacters);  break;
+    charactersToShow = sortByNameAsc(charactersToShow);
+    displayCharacters(sortByNameAsc(charactersToShow), showCharacters);  break;
   case 2:
-    displayCharacters(sortByNameDesc(allCharacters), showCharacters);  break;
+    charactersToShow = sortByNameDesc(charactersToShow);
+    displayCharacters(sortByNameDesc(charactersToShow), showCharacters);  break;
   }
 });
 view3.appendChild(titleCharacters);
