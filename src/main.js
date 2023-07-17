@@ -11,7 +11,7 @@ function displayFilms(data){
   section.innerHTML= '';
   for(let i=0; i < data.length ; i++){
   //declaramos la seccion, poster y nombre
-    const containerFilm = document.createElement('div');
+    const containerFilm = document.createElement('section');
     containerFilm.className = 'film-name';
     const posterContainer = document.createElement('figure');
     posterContainer.className = 'poster-container';
@@ -41,7 +41,7 @@ function displayFilms(data){
 function displayCharacters(data, section){
   section.innerHTML = '';
   for (let i=0; i<data.length; i++){
-    const characterCard=document.createElement('div');
+    const characterCard=document.createElement('section');
     characterCard.className='character-card';
     const characterPhoto=document.createElement('div');
     characterPhoto.className='character-photo';
@@ -59,7 +59,7 @@ function displayCharacters(data, section){
 function displayItems(data, section){
   for (let i=0; i<data.length; i++){
     section.innerHTML = '';
-    const locationCard=document.createElement('div');
+    const locationCard=document.createElement('section');
     locationCard.className='location-card';
     const locationPhoto=document.createElement('figure');
     locationPhoto.className='location-photo';
@@ -109,7 +109,7 @@ menuOptionCharacters.addEventListener('click', function() {
 const view1 = document.createElement('section');
 const view2 = document.createElement('section');
 const view3 = document.createElement('section');
-//const view3=document.createElement('div');
+
 root.appendChild(view1);
 root.appendChild(view2);
 root.appendChild(view3);
@@ -189,7 +189,7 @@ optionSort.addEventListener('change', evento => {
   }
 });
 //Se muestran todas las películas dentro de un contenedor
-const section = document.createElement('div');
+const section = document.createElement('section');
 section.className= 'films-section';
 view1.appendChild(section);
 displayFilms(allFilms); // Llamamos a la función displayFilms y envia como parametro toda la data a mostrar
@@ -232,9 +232,9 @@ function showAllFilm(film){
   
   //Seccion que muestra los personajes de la película
   const subTitle1=document.createElement('h2');
-subTitle1.innerText='Characters';
+  subTitle1.innerText='Characters';
   subTitle1.className = 'subtitle-content';
-  const showCharacters=document.createElement('div');
+  const showCharacters=document.createElement('section');
   showCharacters.className='show-characters';
   displayCharacters(film.people,showCharacters);
 
@@ -245,7 +245,7 @@ subTitle1.innerText='Characters';
     const subTitle2=document.createElement('h2');
     subTitle2.className = 'subtitle-content';
     subTitle2.innerText='Locations';
-    const showLocations=document.createElement('div');
+    const showLocations=document.createElement('section');
     showLocations.className='show-locations'; 
     displayItems(film.locations,showLocations);
     view2.appendChild(subTitle2);
@@ -256,7 +256,7 @@ subTitle1.innerText='Characters';
     const subTitle3=document.createElement('h2');
     subTitle3.innerText='Vehicles';
     subTitle3.className = 'subtitle-content';
-    const showVehicles=document.createElement('div');
+    const showVehicles=document.createElement('section');
     showVehicles.className='show-vehicles';
     displayItems(film.vehicles,showVehicles);
     view2.appendChild(subTitle3);
@@ -275,7 +275,7 @@ subTitle1.innerText='Characters';
 //INICIA VISTA 3
 const titleCharacters=document.createElement('h1');
 titleCharacters.innerText='Characters';
-const showCharacters=document.createElement('div');
+const showCharacters=document.createElement('section');
 showCharacters.className='show-characters';
 const percentageByGender = document.createElement('p');
 percentageByGender.id = 'percentageGender';
@@ -336,10 +336,10 @@ optionSortCharacters.addEventListener('change', evento => {
     displayCharacters(charactersToShow, showCharacters); break;
   case 1:
     charactersToShow = sortByNameAsc(charactersToShow);
-    displayCharacters(sortByNameAsc(charactersToShow), showCharacters);  break;
+    displayCharacters(charactersToShow, showCharacters);  break;
   case 2:
     charactersToShow = sortByNameDesc(charactersToShow);
-    displayCharacters(sortByNameDesc(charactersToShow), showCharacters);  break;
+    displayCharacters(charactersToShow, showCharacters);  break;
   }
 });
 view3.appendChild(titleCharacters);
