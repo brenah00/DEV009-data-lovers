@@ -127,7 +127,7 @@ view1.appendChild(titlePage);
 const filterSection = document.createElement('nav');
 filterSection.className = 'filter-bar';
 view1.appendChild(filterSection);
-
+let filmsToShow;
 const optionDirector = document.createElement('select');
 const optionsDirectors = document.createElement('option');
 optionsDirectors.innerText = 'Show by Director';
@@ -164,24 +164,27 @@ filterSection.appendChild(optionSort);
 optionDirector.addEventListener('change', evento => {
   const option = evento.target.options.selectedIndex;
   if (option === 0) {
-    displayFilms(allFilms);
+    filmsToShow = allFilms;
+    displayFilms(filmsToShow);
   }
   else {
-    const filtro = searchByDirector(allFilms, filmDirectors[option - 1]);
-    displayFilms(filtro);
+    filmsToShow = searchByDirector(allFilms, filmDirectors[option - 1]);
+    displayFilms(filmsToShow);
   }
 });
 optionSort.addEventListener('change', evento => {
   const option = evento.target.options.selectedIndex;
   switch(option) {
   case 0:
-    displayFilms(allFilms); 
+    displayFilms(filmsToShow); 
     break;
   case 1:
-    displayFilms(sortByYearAsc(allFilms)); 
+    filmsToShow = sortByYearAsc(filmsToShow);
+    displayFilms(filmsToShow); 
     break;
   case 2:
-    displayFilms(sortByYearDesc(allFilms)); 
+    filmsToShow = sortByYearDesc(filmsToShow);
+    displayFilms(filmsToShow); 
     break;
   }
 });
@@ -197,7 +200,7 @@ function showAllFilm(film){
   view2.innerHTML= '';
   const button1=document.createElement('button');
   button1.id = 'button-back';
-  button1.innerText='Back to films';
+  button1.innerText='< Back to films';
   const cardFilm = document.createElement('section');
   cardFilm.className= 'card-film';
   const poster = document.createElement('img');
@@ -229,7 +232,8 @@ function showAllFilm(film){
   
   //Seccion que muestra los personajes de la película
   const subTitle1=document.createElement('h2');
-  subTitle1.innerText='Characters';
+subTitle1.innerText='Characters';
+  subTitle1.className = 'subtitle-content';
   const showCharacters=document.createElement('div');
   showCharacters.className='show-characters';
   displayCharacters(film.people,showCharacters);
@@ -239,6 +243,7 @@ function showAllFilm(film){
   //Sección que muestra las locaciones de la película solo si hay datos
   if(film.locations.length>0){
     const subTitle2=document.createElement('h2');
+    subTitle2.className = 'subtitle-content';
     subTitle2.innerText='Locations';
     const showLocations=document.createElement('div');
     showLocations.className='show-locations'; 
@@ -250,6 +255,7 @@ function showAllFilm(film){
   if(film.vehicles.length>0){
     const subTitle3=document.createElement('h2');
     subTitle3.innerText='Vehicles';
+    subTitle3.className = 'subtitle-content';
     const showVehicles=document.createElement('div');
     showVehicles.className='show-vehicles';
     displayItems(film.vehicles,showVehicles);
